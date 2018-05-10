@@ -18,6 +18,7 @@
         <module>Parameters</module>
         <module>InitParameters</module>
         <module>Session</module>
+        <module>Example</module>
     </modules>
 
     <dependencies>
