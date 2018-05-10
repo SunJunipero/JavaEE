@@ -17,6 +17,7 @@
         <module>RedirectVsForward</module>
         <module>Parameters</module>
         <module>InitParameters</module>
+        <module>Session</module>
     </modules>
 
     <dependencies>
