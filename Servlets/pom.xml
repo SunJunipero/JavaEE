@@ -15,6 +15,7 @@
     <modules>
         <module>Filter</module>
         <module>RedirectVsForward</module>
+        <module>Parameters</module>
     </modules>
 
     <dependencies>
