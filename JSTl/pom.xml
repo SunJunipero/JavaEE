@@ -12,6 +12,7 @@
     <artifactId>JSTl</artifactId>
     <modules>
         <module>ScripletExample</module>
+        <module>PersonExample</module>
     </modules>
 
     <dependencies>
