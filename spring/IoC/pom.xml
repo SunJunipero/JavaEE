@@ -20,6 +20,7 @@
         <module>Scope</module>
         <module>Inheritance</module>
         <module>Lazy-Init</module>
+        <module>Init-Destroy</module>
     </modules>
 
     
