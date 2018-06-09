@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+    <!--or for all-->
+<!--default-lazy-init="false">-->
+
+    <bean name="not-lazy-Date" class="java.util.Date" lazy-init="false"/>
+
+    <bean name="lazy-date" class="java.util.Date" lazy-init="true"/>
+
+</beans>

@@ -19,6 +19,7 @@
         <module>Instantiatoin</module>
         <module>Scope</module>
         <module>Inheritance</module>
+        <module>Lazy-Init</module>
     </modules>
 
     
