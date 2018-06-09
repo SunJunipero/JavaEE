@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+   <bean id="currentDate" class="java.util.Date"/>
+
+    <bean id="default-constructor-person" class="bean.Person">
+        <property name="id" value="1024"/>
+        <property name="name" value="Alex"/>
+        <property name="birth" ref="currentDate"/>
+    </bean>
+
+    <bean id="arg-constructor-person" class="bean.Person">
+        <constructor-arg name="id" value="1122"/>
+        <constructor-arg name="name" value="Math"/>
+        <constructor-arg name="birth" ref="currentDate"/>
+    </bean>
+
+    <bean id="default-factory-method" class="bean.Person" factory-method="getPerson"/>
+
+    <bean id="argument-factory-method" class="bean.Person" factory-method="getParamPerson">
+        <constructor-arg name="id" value="9999"/>
+        <constructor-arg name="name" value="Jamie"/>
+        <constructor-arg name="birth" ref="currentDate"/>
+    </bean>
+</beans>

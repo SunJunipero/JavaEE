@@ -16,6 +16,7 @@
 
     <modules>
         <module>SimpleBean</module>
+        <module>Instantiatoin</module>
     </modules>
 
     
