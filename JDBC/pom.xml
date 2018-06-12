@@ -31,6 +31,7 @@
     <modules>
         <module>Connection</module>
         <module>Statement</module>
+        <module>PrepareStatement</module>
     </modules>
 
     <dependencies>
