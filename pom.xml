@@ -15,6 +15,7 @@
         <module>testWebApp</module>
         <module>hibernate</module>
         <module>spring</module>
+        <module>JDBC</module>
     </modules>
 
 
