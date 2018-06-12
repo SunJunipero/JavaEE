@@ -33,6 +33,7 @@
         <module>Statement</module>
         <module>PrepareStatement</module>
         <module>BLOB</module>
+        <module>Date</module>
 
     </modules>
 
