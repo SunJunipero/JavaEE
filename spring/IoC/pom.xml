@@ -21,6 +21,8 @@
         <module>Inheritance</module>
         <module>Lazy-Init</module>
         <module>Init-Destroy</module>
+        <module>Annotation</module>
+        <module>AnnotationConfig</module>
     </modules>
 
     

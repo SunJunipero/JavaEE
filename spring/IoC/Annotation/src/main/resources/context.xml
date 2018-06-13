@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="date" class="java.util.Date"/>
+
+    <bean id="owner" class="beans.Person">
+        <property name="id" value="12"/>
+        <property name="name" value="AlexTurner"/>
+        <property name="birth" ref="date"/>
+    </bean>
+
+    <bean id="owner1" class="beans.Person">
+        <property name="id" value="12"/>
+        <property name="name" value="BobMarley"/>
+        <property name="birth" ref="date"/>
+    </bean>
+
+    <bean id="owner2" class="beans.Person">
+        <property name="id" value="12"/>
+        <property name="name" value="DonaldTrump"/>
+        <property name="birth" ref="date"/>
+    </bean>
+
+    <bean id="car" class="beans.Car">
+        <property name="id" value="121"/>
+        <property name="model" value="Acura"/>
+        <property name="year" value="2014"/>
+        <property name="serviceDate" ref="date"/>
+    </bean>
+</beans>
