@@ -18,6 +18,7 @@
     <modules>
         <module>EazyServlet</module>
         <module>EazyServletAndBd</module>
+        <module>CRUDEazyServletAndBd</module>
     </modules>
 
     

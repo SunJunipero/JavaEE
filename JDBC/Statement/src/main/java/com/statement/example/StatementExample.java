@@ -15,7 +15,6 @@ public class StatementExample {
         try (Connection connection = DriverManager.getConnection(URL, userName, password);
         Statement statement = connection.createStatement()){
             System.out.println("LOOOLL !!!");
-
 //            statement.executeUpdate("INSERT into bands.groups (name) values ('Miles Kane')");
             // another way to insert
 //            statement.executeUpdate("insert into bands.groups set name ='John Talabot'");
