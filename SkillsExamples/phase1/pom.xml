@@ -13,9 +13,11 @@
     <groupId>my.javaee</groupId>
     <artifactId>phase1</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>EazyServlet</module>
+        <module>EazyServletAndBd</module>
     </modules>
 
     
