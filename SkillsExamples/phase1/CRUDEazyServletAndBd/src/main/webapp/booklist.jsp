@@ -12,6 +12,13 @@
     <title>Books</title>
 </head>
 <body>
+<h1 align="center"> Book Management </h1>
+    <h2 align="center">
+        <a href="/new"> Add new book</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/list"> List all books</a>
+    </h2>
+
     <table border="1" cellpadding="5">
         <tr>
             <th>ID</th>
