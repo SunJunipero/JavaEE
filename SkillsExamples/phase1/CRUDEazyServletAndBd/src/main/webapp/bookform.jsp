@@ -39,8 +39,32 @@
                 <c:if test="${book != null}">
                     <input type="hidden" name="id" value="<c:out value='${book.id}'/>" />
                 </c:if>
-
-
+                <tr>
+                    <th>Title</th>
+                    <td>
+                        <input type="text" name="title" size="45"
+                               value="<c:out value='${book.title}'/>"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Author</th>
+                    <td>
+                        <input type="text" name="author" size="45"
+                               value="<c:out value='${book.author}'/>"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>
+                        <input type="text" name="price" size="45"
+                               value="<c:out value='${book.price}'/>"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Save"/>
+                    </td>
+                </tr>
             </table>
             </form>
     </div>
