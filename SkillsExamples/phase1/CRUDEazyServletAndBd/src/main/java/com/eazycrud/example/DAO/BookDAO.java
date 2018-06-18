@@ -94,6 +94,7 @@ public class BookDAO {
             flag = preparedStatement.executeUpdate() > 0;
 
         }
+        System.out.println("make delete in DAO");
 
         return flag;
     }

@@ -12,9 +12,18 @@ public class Book {
         this.author = author;
         this.price = price;
     }
+    public Book( String title, String author, Double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
 
     public Book(){
 
+    }
+
+    public Book(Integer id) {
+        this.id =id;
     }
 
     public Integer getId() {
