@@ -1,6 +1,6 @@
 package controller;
 
-import model.Person;
+import com.musicblog.Person;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;

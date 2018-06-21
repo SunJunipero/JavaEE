@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>my.javaee</groupId>
-        <artifactId>phase1</artifactId>
+        <artifactId>phase2</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>my.javaee</groupId>
-    <artifactId>CRUDEazyServletAndBd</artifactId>
+    <artifactId>AwesomeProject-01</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 

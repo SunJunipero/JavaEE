@@ -1,4 +1,4 @@
-package model;
+package com.musicblog;
 
 public class Person {
     String name;

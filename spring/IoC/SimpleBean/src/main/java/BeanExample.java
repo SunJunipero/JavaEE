@@ -22,7 +22,7 @@ public class BeanExample {
         logger.debug("\n\n\n");
 
         Car car = context.getBean("car", Car.class);
-        logger.debug("Car model: {}", car.getModel());
+        logger.debug("Car com.musicblog.model: {}", car.getModel());
         System.out.println(car.getModel());
     }
 }

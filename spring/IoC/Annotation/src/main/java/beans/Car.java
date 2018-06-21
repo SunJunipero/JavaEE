@@ -35,7 +35,7 @@ public class Car {
                 "id=" + id +
                 ", serviceDate=" + serviceDate +
                 ", year=" + year +
-                ", model='" + model + '\'' +
+                ", com.musicblog.model='" + model + '\'' +
                 ", owner=" + owner +
                 '}';
     }

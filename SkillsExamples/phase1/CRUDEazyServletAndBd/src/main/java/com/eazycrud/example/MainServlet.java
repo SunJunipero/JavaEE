@@ -66,7 +66,11 @@ public class MainServlet extends HttpServlet {
             }
         }
         catch (SQLException ex){
+            System.out.println(ex);
             throw new ServletException(ex);
+        }
+        catch (Exception ex){
+            System.out.println(ex);
         }
 
 

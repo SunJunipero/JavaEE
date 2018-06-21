@@ -1,5 +1,6 @@
 package com.eazycrud.example.DAO;
 
+import com.eazycrud.example.BDConnection;
 import com.eazycrud.example.beans.Book;
 
 import java.sql.*;
@@ -26,10 +27,12 @@ public class BookDAO {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            System.out.println("Create connection");
             connection = DriverManager.getConnection(URl, name, password);
+            System.out.println("Create connection" + "hc - " + connection.hashCode());
 
         }
+        //connection = BDConnection.getBdConnection(URl, name, password);
+        System.out.println("connection.hashCode() - " + connection.hashCode());
         return connection;
     }
 
@@ -47,6 +50,7 @@ public class BookDAO {
                         resultSet.getDouble(4)));
             }
         }
+        System.out.println(books);
         return books;
     }
 
