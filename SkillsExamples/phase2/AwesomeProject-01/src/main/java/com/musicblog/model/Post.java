@@ -9,9 +9,9 @@ public class Post extends MainEntity {
     private String body;
     private Category category;
 
-    public Post(String title, String summury, String body, Category category) {
+    public Post(String title, String summary, String body, Category category) {
         this.title = title;
-        this.summary = summury;
+        this.summary = summary;
         this.body = body;
         this.category = category;
     }
@@ -25,6 +25,13 @@ public class Post extends MainEntity {
 
     }
 
+    public Integer gitInteger(){
+        return id;
+    }
+
+    public void setInteger(Integer id){
+        this.id = id;
+    }
     public String getTitle() {
         return title;
     }
