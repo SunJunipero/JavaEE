@@ -1,6 +1,8 @@
 package com.eazycrud.example.DAO;
 
 import com.eazycrud.example.BDConnection;
+import com.eazycrud.example.DataSourceFactory;
+import com.eazycrud.example.JNDIConnection;
 import com.eazycrud.example.beans.Book;
 
 import java.sql.*;
@@ -33,7 +35,9 @@ public class BookDAO {
 
     public List<Book> ListAllBook() throws SQLException {
         ArrayList<Book> books = new ArrayList<>();
-        try (Connection connection = BDConnection.getBdConnection();
+        try (//Connection connection = BDConnection.getBdConnection();
+             //Connection connection = DataSourceFactory.getDataSource().getConnection();
+             Connection connection = JNDIConnection.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("select * from phase1.bookshelf")){
 
@@ -52,7 +56,11 @@ public class BookDAO {
         Book book = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        try (Connection connection = BDConnection.getBdConnection()){
+        /**
+         * or get connection with driver manager
+         * Connection connection = BDConnection.getBdConnection()
+         */
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()){
 
         preparedStatement = connection.prepareStatement("select * from phase1.bookshelf where book_id = ?");
         preparedStatement.setInt(1, id);
@@ -81,7 +89,7 @@ public class BookDAO {
         boolean flag = false;
 
         PreparedStatement preparedStatement = null;
-        try (Connection connection = BDConnection.getBdConnection()){
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()){
             preparedStatement = connection.prepareStatement("insert into phase1.bookshelf(title, author, price) values (?,?,?)");
 
             preparedStatement.setString(1, book.getTitle());
@@ -99,7 +107,7 @@ public class BookDAO {
     public boolean deleteBook(Book book) throws SQLException {
         boolean flag = true;
         PreparedStatement preparedStatement = null;
-        try (Connection connection = BDConnection.getBdConnection()){
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()){
             preparedStatement = connection.prepareStatement("delete from phase1.bookshelf where book_id = ?");
             preparedStatement.setInt(1, book.getId());
             flag = preparedStatement.executeUpdate() > 0;
@@ -116,7 +124,7 @@ public class BookDAO {
     public boolean updateBook(Book book) throws SQLException {
         boolean flag = false;
         PreparedStatement preparedStatement = null;
-        try (Connection connection = BDConnection.getBdConnection()){
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()){
             preparedStatement = connection.prepareStatement("update phase1.bookshelf set title = ?, author = ?, price = ?"+
             "where book_id = ?");
             preparedStatement.setString(1, book.getTitle());

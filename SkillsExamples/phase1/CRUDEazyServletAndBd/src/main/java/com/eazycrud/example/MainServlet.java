@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/")
+@WebServlet("/book")
 public class MainServlet extends HttpServlet {
 
     BookDAO bookDAO;
