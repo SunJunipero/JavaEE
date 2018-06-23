@@ -25,7 +25,8 @@ public class MainServlet extends HttpServlet {
         String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
         String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
 
-        bookDAO = new BookDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        //bookDAO = new BookDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        bookDAO = new BookDAO();
 
     }
 

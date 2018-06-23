@@ -1,21 +1,35 @@
 package com.eazycrud.example;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class BDConnection {
-    private static Connection connection;
 
-    public static Connection getBdConnection(String URl, String name, String root) throws  SQLException {
-        if (connection == null){
+    public static Connection getBdConnection() {
+        Properties properties = new Properties();
+        FileInputStream fstream = null;
+        Connection connection = null;
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
+                fstream = new FileInputStream("/home/kostya/IdeaProjects/JavaEE/SkillsExamples/phase1/CRUDEazyServletAndBd/src/main/resources/connection.properties");
+                properties.load(fstream);
+                Class.forName(properties.getProperty("DB_DRIVER_CLASS"));
+                connection = DriverManager.getConnection(
+                        properties.getProperty("DB_URL"),
+                        properties.getProperty("DB_USERNAME"),
+                        properties.getProperty("DB_PASSWORD")
+                );
+            } catch (ClassNotFoundException | SQLException |IOException e) {
                 e.printStackTrace();
             }
-            connection = DriverManager.getConnection(URl, name,root);
-        }
+        System.out.println("\t\tconnection.hashCode() - " + connection.hashCode());
         return connection;
-    }
+
 }
+}
+
+
