@@ -19,3 +19,17 @@ create table posts(
 
 alter table posts add constraint CONSTR_POST_CATEGORY foreign key (categoryid) references categories(id);
 
+
+insert into blog.categories (name) values
+  ('testValue1'),
+  ('testValue2'),
+  ('testValue3');
+
+
+INSERT INTO blog.posts (`id`, `title`, `summary`, `body`, `categoryId`) VALUES
+  (1,'Test title1', 'Test summary1', 'Test body1', 1);
+
+INSERT INTO `posts` (`id`, `title`, `summary`, `body`, `categoryId`) VALUES
+  (2,'Test title2', 'Test summary2', 'Test body2', 1);
+
+

@@ -42,4 +42,12 @@ public class Category extends MainEntity{
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                ", posts=" + posts +
+                '}';
+    }
 }
