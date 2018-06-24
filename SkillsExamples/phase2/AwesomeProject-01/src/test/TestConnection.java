@@ -25,7 +25,7 @@ public class TestConnection {
             source.setUser(properties.getProperty("DB_USERNAME"));
             source.setPassword(properties.getProperty("DB_PASSWORD"));
             connection = source.getConnection();
-            assertEquals(false, connection.isClosed());
+            assertFalse(connection.isClosed());
 
             System.out.println(connection.isClosed());
 
@@ -36,7 +36,7 @@ public class TestConnection {
             if (connection != null) {
                 try {
                     connection.close();
-                    assertEquals(true, connection.isClosed());
+                    assertTrue(connection.isClosed());
                     System.out.println(connection.isClosed());
                 } catch (SQLException e) {
                     e.printStackTrace();
