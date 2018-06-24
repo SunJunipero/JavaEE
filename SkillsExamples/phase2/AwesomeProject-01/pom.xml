@@ -16,7 +16,7 @@
     <packaging>war</packaging>
 
     <build>
-        <finalName>Example</finalName>
+        <finalName>Blog</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>

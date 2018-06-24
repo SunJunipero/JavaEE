@@ -21,6 +21,7 @@ public class JNDIConnection {
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("connection.hashCode() - " + connection.hashCode());
         return connection;
     }
 }
