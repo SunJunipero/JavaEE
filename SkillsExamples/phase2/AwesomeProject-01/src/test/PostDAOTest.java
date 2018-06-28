@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PostDAOTest {
     @Test
-    public void postDAOgetbyId(){
+    public void postDAOgetbyIdTest(){
         PostDAO postDAO = new PostDAO();
 
         Post byId = postDAO.getById(2);
@@ -19,6 +19,21 @@ public class PostDAOTest {
         Post post = new Post("Test title2","Test summary2","Test body2", category);
 
         assertEquals(byId, post);
+    }
 
+    @Test
+    public void postDAOgetAllTest(){
+        PostDAO postDAO = new PostDAO();
+        List<Post> all = postDAO.getAll();
+        assertEquals(3, all.size());
+    }
+
+    @Test
+    public void postDAOdeleteTest(){
+        PostDAO postDAO = new PostDAO();
+        Post byId = postDAO.getById(3);
+        postDAO.delete(byId);
+        Post byId1 = postDAO.getById(3);
+        assertNull(byId1);
     }
 }

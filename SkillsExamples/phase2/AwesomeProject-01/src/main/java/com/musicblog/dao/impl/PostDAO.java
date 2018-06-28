@@ -7,6 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PostDAO extends AbstractDAOImpl <Post> {
+
+    @Override
+    public String getDeleteQuery() {
+        return databaseUtil.getQuery("delete.post.by.id");
+    }
+
     @Override
     public String getAllQuery() {
         return databaseUtil.getQuery("get.all.posts");

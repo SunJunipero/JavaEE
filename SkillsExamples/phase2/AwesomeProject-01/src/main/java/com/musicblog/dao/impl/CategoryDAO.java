@@ -9,6 +9,11 @@ import java.util.List;
 
 public class CategoryDAO extends AbstractDAOImpl<Category> {
     @Override
+    public String getDeleteQuery() {
+        return databaseUtil.getQuery("delete.category");
+    }
+
+    @Override
     public String getAllQuery() {
         return databaseUtil.getQuery("get.all.categories");
     }

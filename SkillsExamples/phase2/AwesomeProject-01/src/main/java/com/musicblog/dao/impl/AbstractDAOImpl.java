@@ -22,8 +22,25 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
 
     @Override
     public void delete(T entity) {
+            Connection connection = null;
+            PreparedStatement statement = null;
+        try {
+            connection = databaseUtil.gettingTestConnection();
+            statement = connection.prepareStatement(getDeleteQuery());
+            statement.setInt(1, entity.getId());
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (connection != null) try {connection.close();}  catch (SQLException e) {e.printStackTrace();}
+            if (statement != null) try {statement.close(); } catch (SQLException e) {  e.printStackTrace();}
+
+        }
+
 
     }
+
 
     @Override
     public T edit(T entity) {
@@ -87,5 +104,6 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
 
     public abstract String getAllQuery();
     public abstract String getByIdQuery();
+    protected abstract String getDeleteQuery();
     public abstract T getEntity(ResultSet set);
 }

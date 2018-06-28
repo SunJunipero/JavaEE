@@ -23,9 +23,19 @@ public class CategoryDAOTest {
     }
 
     @Test
-    public void categoryDAOGetById(){
+    public void categoryDAOGetByIdTest(){
         CategoryDAO categoryDAO = new CategoryDAO();
         Category byId = categoryDAO.getById(3);
         assertEquals("testValue3", byId.getName());
+    }
+
+    @Test
+    public void categoryDeleteTest(){
+        CategoryDAO categoryDAO = new CategoryDAO();
+        Category byId = categoryDAO.getById(4);
+        categoryDAO.delete(byId);
+        Category byId1 = categoryDAO.getById(4);
+        assertNull(byId1);
+
     }
 }
