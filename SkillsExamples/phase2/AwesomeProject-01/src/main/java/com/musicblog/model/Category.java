@@ -1,6 +1,7 @@
 package com.musicblog.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Category extends MainEntity{
     private String name;
@@ -41,6 +42,20 @@ public class Category extends MainEntity{
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return Objects.equals(name, category.name) &&
+                Objects.equals(posts, category.posts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, posts);
     }
 
     @Override

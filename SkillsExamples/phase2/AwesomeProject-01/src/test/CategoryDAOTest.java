@@ -20,8 +20,12 @@ public class CategoryDAOTest {
         }
 
         assertEquals(actualList, expectingReturn);
+    }
 
-
-
+    @Test
+    public void categoryDAOGetById(){
+        CategoryDAO categoryDAO = new CategoryDAO();
+        Category byId = categoryDAO.getById(3);
+        assertEquals("testValue3", byId.getName());
     }
 }

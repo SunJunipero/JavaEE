@@ -23,7 +23,7 @@ public class DatabaseUtil{
     }
 
     private void loadProperties() {
-        InputStream inputStream = null;
+        InputStream inputStream;
         inputStream = getClass().getResourceAsStream("/queries.properties");
         queries = new Properties();
         try {

@@ -14,6 +14,11 @@ public class CategoryDAO extends AbstractDAOImpl<Category> {
     }
 
     @Override
+    public String getByIdQuery() {
+        return databaseUtil.getQuery("get.category.by.id");
+    }
+
+    @Override
     public Category getEntity(ResultSet set) {
         try {
             return new Category(set.getInt("id"), set.getString("name"));
