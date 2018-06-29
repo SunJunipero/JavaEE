@@ -4,10 +4,7 @@ import com.musicblog.dao.AbstractDAO;
 import com.musicblog.model.MainEntity;
 import com.musicblog.util.DatabaseUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +14,35 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
 
         @Override
     public T create(T entity) {
-        return null;
-    }
+            Connection connection = null;
+            PreparedStatement statement = null;
+            ResultSet set = null;
+
+            try {
+                connection = databaseUtil.gettingTestConnection();
+                statement = connection.prepareStatement(getCreateQuery(), Statement.RETURN_GENERATED_KEYS);
+                fillCreateStatement(statement, entity);
+                statement.executeUpdate();
+                set = statement.getGeneratedKeys();
+                System.out.println("\t\tgetGeneratedKeys()");
+                System.out.println(set);
+                if (set.next()) {
+                    Integer anInt = set.getInt(1);
+                    System.out.println("anInt - " + anInt);
+                    return getById(anInt);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
+            finally {
+                if (connection != null) try {connection.close();}  catch (SQLException e) {e.printStackTrace();}
+                if (statement != null) try {statement.close(); } catch (SQLException e) {  e.printStackTrace();}
+                if (set != null) try {set.close(); } catch (SQLException e) {  e.printStackTrace();}
+            }
+            return null;
+        }
+
 
     @Override
     public void delete(T entity) {
@@ -102,8 +126,13 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
         return list;
     }
 
+    public abstract void fillCreateStatement(PreparedStatement statement, T entity);
+
     public abstract String getAllQuery();
     public abstract String getByIdQuery();
-    protected abstract String getDeleteQuery();
+    public abstract String getDeleteQuery();
+    public abstract String getCreateQuery();
+
     public abstract T getEntity(ResultSet set);
+
 }

@@ -1,3 +1,4 @@
+import com.musicblog.dao.impl.CategoryDAO;
 import com.musicblog.dao.impl.PostDAO;
 import com.musicblog.model.Category;
 import com.musicblog.model.Post;
@@ -29,11 +30,23 @@ public class PostDAOTest {
     }
 
     @Test
-    public void postDAOdeleteTest(){
+    public void postDAODeleteTest(){
         PostDAO postDAO = new PostDAO();
         Post byId = postDAO.getById(3);
         postDAO.delete(byId);
         Post byId1 = postDAO.getById(3);
         assertNull(byId1);
     }
+
+    @Test
+    public void postDAOCreateTest(){
+        PostDAO postDAO = new PostDAO();
+        CategoryDAO categoryDAO = new CategoryDAO();
+        Post post = new Post("insert title", "insert summary", "insert body", categoryDAO.getById(2));
+        postDAO.create(post);
+        assertEquals(Integer.valueOf(7), postDAO.getById(7).getId());
+
+
+    }
 }
+

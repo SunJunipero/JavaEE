@@ -3,11 +3,27 @@ package com.musicblog.dao.impl;
 import com.musicblog.dao.AbstractDAO;
 import com.musicblog.model.Category;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 public class CategoryDAO extends AbstractDAOImpl<Category> {
+
+    @Override
+    public void fillCreateStatement(PreparedStatement statement, Category entity) {
+        try {
+            statement.setString(1, entity.getName());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String getCreateQuery() {
+        return databaseUtil.getQuery("create.category");
+    }
+
     @Override
     public String getDeleteQuery() {
         return databaseUtil.getQuery("delete.category");
