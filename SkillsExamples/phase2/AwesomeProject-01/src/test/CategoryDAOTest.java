@@ -47,4 +47,12 @@ public class CategoryDAOTest {
         categoryDAO.create(insert_cat);
         assertEquals(insert_cat.getName(), categoryDAO.getById(8).getName());
     }
+
+    @Test
+    public void categoryDAOUpdateTest(){
+        CategoryDAO categoryDAO = new CategoryDAO();
+        Category editCat = new Category(3, "Edit Category");
+        categoryDAO.edit(editCat);
+        assertEquals("Edit Category", categoryDAO.getById(3).getName());
+    }
 }

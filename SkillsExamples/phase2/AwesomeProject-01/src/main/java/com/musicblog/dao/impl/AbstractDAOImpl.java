@@ -68,8 +68,28 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
 
     @Override
     public T edit(T entity) {
+            Connection connection = null;
+            PreparedStatement statement = null;
+
+            try{
+                connection = databaseUtil.gettingTestConnection();
+                statement= connection.prepareStatement(getEditQuery());
+                fillEditStatement(statement, entity);
+                statement.executeUpdate();
+                return entity;
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally {
+                if (connection != null) try {connection.close();}  catch (SQLException e) {e.printStackTrace();}
+                if (statement != null) try {statement.close(); } catch (SQLException e) {  e.printStackTrace();}
+
+            }
         return null;
     }
+
+
 
     @Override
     public T getById(Integer id) {
@@ -127,11 +147,13 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
     }
 
     public abstract void fillCreateStatement(PreparedStatement statement, T entity);
+    public abstract void fillEditStatement(PreparedStatement statement, T entity);
 
     public abstract String getAllQuery();
     public abstract String getByIdQuery();
     public abstract String getDeleteQuery();
     public abstract String getCreateQuery();
+    public abstract String getEditQuery();
 
     public abstract T getEntity(ResultSet set);
 

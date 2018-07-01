@@ -8,6 +8,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PostDAO extends AbstractDAOImpl <Post> {
+    @Override
+    public void fillEditStatement(PreparedStatement statement, Post entity) {
+            try {
+                statement.setString(1, entity.getTitle());
+                statement.setString(2, entity.getSummary());
+                statement.setString(3, entity.getBody());
+                statement.setInt(4, entity.getCategory().getId());
+                statement.setInt(5, entity.getId());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+    }
 
     @Override
     public void fillCreateStatement(PreparedStatement statement, Post entity) {
@@ -43,6 +55,13 @@ public class PostDAO extends AbstractDAOImpl <Post> {
 
         return databaseUtil.getQuery("get.post.by.id");
     }
+
+
+    @Override
+    public String getEditQuery() {
+        return databaseUtil.getQuery("update.post");
+    }
+
 
 
     private CategoryDAO category = new CategoryDAO();

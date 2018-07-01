@@ -45,8 +45,17 @@ public class PostDAOTest {
         Post post = new Post("insert title", "insert summary", "insert body", categoryDAO.getById(2));
         postDAO.create(post);
         assertEquals(Integer.valueOf(7), postDAO.getById(7).getId());
+    }
 
-
+    @Test
+    public void postDAOUpdateTest(){
+        PostDAO postDAO = new PostDAO();
+        Post byId = postDAO.getById(2);
+        byId.setBody("update body");
+        byId.setSummary("update summary");
+        postDAO.edit(byId);
+        assertEquals("update body", postDAO.getById(2).getBody());
+        assertEquals("update summary", postDAO.getById(2).getSummary());
     }
 }
 

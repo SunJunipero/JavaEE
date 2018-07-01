@@ -11,6 +11,17 @@ import java.util.List;
 public class CategoryDAO extends AbstractDAOImpl<Category> {
 
     @Override
+    public void fillEditStatement(PreparedStatement statement, Category entity) {
+        try {
+            statement.setString(1, entity.getName());
+            statement.setInt(2, entity.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
     public void fillCreateStatement(PreparedStatement statement, Category entity) {
         try {
             statement.setString(1, entity.getName());
@@ -37,6 +48,11 @@ public class CategoryDAO extends AbstractDAOImpl<Category> {
     @Override
     public String getByIdQuery() {
         return databaseUtil.getQuery("get.category.by.id");
+    }
+
+    @Override
+    public String getEditQuery() {
+         return databaseUtil.getQuery("update.category") ;
     }
 
     @Override
