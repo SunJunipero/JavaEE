@@ -49,18 +49,25 @@
             <td><textarea name="body" rows="30" cols="60"> <c:if test="${isEdit}">${post.body}</c:if></textarea></td>
         </tr>
         <tr>
+            <td>Category1</td>
+            <td><textarea name="body" rows="30" cols="60"> <c:if test="${isEdit}">${post.category.name}</c:if></textarea></td>
+        </tr>
+        <tr>
             <td>Category</td>
             <td>
+                <%--<select name="category">--%>
 
-                <select name="category">
+                    <%--<c:forEach items="${categories}" var="cat">--%>
+                        <%--<option--%>
+                                <%--<c:if test="${isEdit && cat.id == post.category.id}"/>--%>
+                                <%--selected value="${cat.id}">${cat.name}</option>--%>
+                    <%--</c:forEach>--%>
+                <%--</select>--%>
+                <select name="Category">
                     <c:forEach items="${categories}" var="cat">
-                        <option
-                                <c:if test="${isEdit && cat.id == post.id}">selected="selected"</c:if>
-                                value="${cat.id}">${cat.name}</option>
+                        <option value="${cat.id}">lol${cat.name}</option>
                     </c:forEach>
                 </select>
-
-
             </td>
         </tr>
         <tr>

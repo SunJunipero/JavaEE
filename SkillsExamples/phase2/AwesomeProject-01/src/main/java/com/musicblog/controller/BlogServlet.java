@@ -27,20 +27,23 @@ public class BlogServlet extends HttpServlet {
         String url = req.getRequestURL().toString();
 
         if(url.contains("newpost")){
+            System.out.println("\t\t BlogServlet - newPost");
             List<Category> categories = categoryDAO.getAll();
             req.setAttribute("categories", categories);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/newPost.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/newpost.jsp");
             rd.forward(req, resp);
             return;
         }
 
         if(postId != null){
+            System.out.println("\t\t BlogServlet - postId");
             Post post = postDAO.getById(Integer.parseInt(postId));
             req.setAttribute("post", post );
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/post.jsp");
             rd.forward(req, resp);
         }
         else{
+            System.out.println("\t\t BlogServlet - getAll");
             List<Post> posts = categoryId == null ? postDAO.getAll() :
                     postDAO.getPostsByCategoryId(Integer.parseInt(categoryId));
             req.setAttribute("posts", posts);
@@ -69,8 +72,10 @@ public class BlogServlet extends HttpServlet {
             Post post = new Post(title, summary, body, cat);
             if (id != null) {
                 post.setId(Integer.parseInt(id));
+                System.out.println("\t\t Edit post");
                 postDAO.edit(post);
             }else{
+                System.out.println("\t\t Create post");
                 postDAO.create(post);
             }
         }
