@@ -51,7 +51,9 @@ public class BlogAdminServlet extends HttpServlet {
             if (postId != null) {
                 System.out.println("\t\t  postId != null");
                 Post post = postDao.getById(Integer.parseInt(postId));
+                List<Category> categories = categoryDao.getAll();
                 req.setAttribute("post", post);
+                req.setAttribute("categories", categories);
             }
             if (categoryId != null) {
                 target = "/admin/categories.jsp";

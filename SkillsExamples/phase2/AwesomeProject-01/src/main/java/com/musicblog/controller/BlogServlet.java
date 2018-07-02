@@ -60,12 +60,18 @@ public class BlogServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         String title = req.getParameter("title");
-        System.out.println("title = " + title);
         String summary = req.getParameter("summary");
         String body = req.getParameter("body");
         String category = req.getParameter("category");
 
+        System.out.println("title = " + title
+        + "id " + id
+        + "summary " + summary
+        + "body " + body
+        + "category" + category);
+
         if (title != null && summary != null && body != null && category != null ){
+
 
             Category cat =  categoryDAO.getById(Integer.parseInt(category));
 
