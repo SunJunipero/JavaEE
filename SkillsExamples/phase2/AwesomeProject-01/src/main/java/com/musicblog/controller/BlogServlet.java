@@ -1,0 +1,80 @@
+package com.musicblog.controller;
+
+import com.musicblog.dao.impl.CategoryDAO;
+import com.musicblog.dao.impl.PostDAO;
+import com.musicblog.model.Category;
+import com.musicblog.model.Post;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet(urlPatterns = {"/blog/*", "/blog", "/newpost"})
+public class BlogServlet extends HttpServlet {
+
+    CategoryDAO categoryDAO = new CategoryDAO();
+    PostDAO postDAO = new PostDAO();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String postId = req.getParameter("post");
+        String categoryId = req.getParameter("category");
+        String url = req.getRequestURL().toString();
+
+        if(url.contains("newpost")){
+            List<Category> categories = categoryDAO.getAll();
+            req.setAttribute("categories", categories);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/newPost.jsp");
+            rd.forward(req, resp);
+            return;
+        }
+
+        if(postId != null){
+            Post post = postDAO.getById(Integer.parseInt(postId));
+            req.setAttribute("post", post );
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/post.jsp");
+            rd.forward(req, resp);
+        }
+        else{
+            List<Post> posts = categoryId == null ? postDAO.getAll() :
+                    postDAO.getPostsByCategoryId(Integer.parseInt(categoryId));
+            req.setAttribute("posts", posts);
+            List<Category> categories = categoryDAO.getAll();
+            req.setAttribute("categories", categories);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/index.jsp");
+            rd.forward(req, resp);
+
+        }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
+        String title = req.getParameter("title");
+        System.out.println("title = " + title);
+        String summary = req.getParameter("summary");
+        String body = req.getParameter("body");
+        String category = req.getParameter("category");
+
+        if (title != null && summary != null && body != null && category != null ){
+
+            Category cat =  categoryDAO.getById(Integer.parseInt(category));
+
+            Post post = new Post(title, summary, body, cat);
+            if (id != null) {
+                post.setId(Integer.parseInt(id));
+                postDAO.edit(post);
+            }else{
+                postDAO.create(post);
+            }
+        }
+
+        resp.sendRedirect("/blog");
+    }
+}

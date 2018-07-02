@@ -19,7 +19,8 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
             ResultSet set = null;
 
             try {
-                connection = databaseUtil.gettingTestConnection();
+                //connection = databaseUtil.gettingTestConnection();
+                connection = databaseUtil.getConnection();
                 statement = connection.prepareStatement(getCreateQuery(), Statement.RETURN_GENERATED_KEYS);
                 fillCreateStatement(statement, entity);
                 statement.executeUpdate();
@@ -49,7 +50,8 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
             Connection connection = null;
             PreparedStatement statement = null;
         try {
-            connection = databaseUtil.gettingTestConnection();
+            //connection = databaseUtil.gettingTestConnection();
+            connection = databaseUtil.getConnection();
             statement = connection.prepareStatement(getDeleteQuery());
             statement.setInt(1, entity.getId());
             statement.execute();
@@ -72,7 +74,8 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
             PreparedStatement statement = null;
 
             try{
-                connection = databaseUtil.gettingTestConnection();
+                //connection = databaseUtil.gettingTestConnection();
+                connection = databaseUtil.getConnection();
                 statement= connection.prepareStatement(getEditQuery());
                 fillEditStatement(statement, entity);
                 statement.executeUpdate();
@@ -97,7 +100,8 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            connection = databaseUtil.gettingTestConnection();
+            //connection = databaseUtil.gettingTestConnection();
+            connection = databaseUtil.getConnection();
             statement = connection.prepareStatement(getByIdQuery());
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
@@ -127,7 +131,8 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
 
         try {
             //change on getConnection at final
-            connection = databaseUtil.gettingTestConnection();
+           // connection = databaseUtil.gettingTestConnection();
+            connection = databaseUtil.getConnection();
             statement = connection.prepareStatement(getAllQuery());
             resultSet = statement.executeQuery();
             while (resultSet.next()) {

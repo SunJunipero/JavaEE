@@ -3,9 +3,12 @@ package com.musicblog.dao.impl;
 import com.musicblog.model.Category;
 import com.musicblog.model.Post;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostDAO extends AbstractDAOImpl <Post> {
     @Override
@@ -31,6 +34,24 @@ public class PostDAO extends AbstractDAOImpl <Post> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Post> getPostsByCategoryId (Integer categoryId){
+        ArrayList<Post> posts = new ArrayList<>();
+        Category category = this.category.getById(categoryId);
+
+        try (Connection connection = databaseUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement("select * from blog.posts where categoryId = ?")){
+            statement.setInt(1, categoryId);
+            try (ResultSet resultSet = statement.executeQuery()){
+                while (resultSet.next()){
+                    posts.add(new Post(resultSet, category));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return posts;
     }
 
     @Override
