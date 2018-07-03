@@ -13,6 +13,9 @@
     <title>index</title>
 </head>
 <body>
+<fmt:setLocale value="<%=request.getLocale()%>"/>
+<fmt:bundle basename="message">
+
     <jsp:include page="header.jsp"/>
     <table width="100%">
         <tr>
@@ -42,5 +45,7 @@
             </td>
         </tr>
     </table>
+    <fmt:message key="page"/>
+</fmt:bundle>
 </body>
 </html>

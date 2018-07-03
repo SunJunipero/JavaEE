@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 
 @WebServlet(urlPatterns = {"/blog/*", "/blog", "/newpost"})
 public class BlogServlet extends HttpServlet {
@@ -22,6 +23,8 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message", req.getLocale());
+        resp.setHeader("Content-Language", req.getLocale().getLanguage());
         String postId = req.getParameter("post");
         String categoryId = req.getParameter("category");
         String url = req.getRequestURL().toString();
@@ -49,6 +52,7 @@ public class BlogServlet extends HttpServlet {
             req.setAttribute("posts", posts);
             List<Category> categories = categoryDAO.getAll();
             req.setAttribute("categories", categories);
+            req.setAttribute("test", resourceBundle.getString("test"));
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/index.jsp");
             rd.forward(req, resp);
 

@@ -18,7 +18,7 @@
 
 
     <c:choose>
-        <c:when test="${post ne null}">
+        <c:when test="${post ne null && post.id ne null}">
             <c:set var="isEdit" value="true"/>
             <h1>Edit blog post ${post.title}</h1>
         </c:when>
@@ -35,6 +35,8 @@
 
 
     <table>
+
+        <c:set var="postExist" value="${post ne null}"/>
 
         <c:if test="${isEdit}">
             <input type="hidden" name="id" value="${post.id}"/>
