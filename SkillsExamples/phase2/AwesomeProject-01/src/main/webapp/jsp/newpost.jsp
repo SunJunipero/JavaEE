@@ -27,6 +27,12 @@
         </c:otherwise>
     </c:choose>
 
+    <c:if test="${error == null} ">
+        <%--<span style="color: red">${error}</span>--%>
+        <h3>${error}</h3
+        <%--<h3>Please, fill required fields</h3>--%>
+    </c:if>
+
 
     <table>
 
@@ -41,12 +47,12 @@
         </tr>
         <tr>
             <td>Summary</td>
-            <td><textarea name="summary" rows="10" cols="60"> <c:if test="${isEdit}">${post.summary}</c:if></textarea>
+            <td><textarea name="summary" rows="10" cols="60"><c:if test="${isEdit}">${post.summary}</c:if></textarea>
             </td>
         </tr>
         <tr>
             <td>Body</td>
-            <td><textarea name="body" rows="30" cols="60"> <c:if test="${isEdit}">${post.body}</c:if></textarea></td>
+            <td><textarea name="body" rows="30" cols="60"><c:if test="${isEdit}">${post.body}</c:if></textarea></td>
         </tr>
         <tr>
             <td>Category</td>

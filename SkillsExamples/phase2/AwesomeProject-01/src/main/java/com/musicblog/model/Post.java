@@ -10,6 +10,10 @@ public class Post extends MainEntity {
     private String body;
     private Category category;
 
+    public Post(){
+
+    }
+
     public Post(String title, String summary, String body, Category category) {
         this.title = title;
         this.summary = summary;

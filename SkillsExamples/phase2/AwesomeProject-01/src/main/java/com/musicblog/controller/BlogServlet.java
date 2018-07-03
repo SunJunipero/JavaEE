@@ -70,9 +70,7 @@ public class BlogServlet extends HttpServlet {
         + "body " + body
         + "category" + category);
 
-        if (title != null && summary != null && body != null && category != null ){
-
-
+        if (ValidateParam(title, body, summary)){
             Category cat =  categoryDAO.getById(Integer.parseInt(category));
 
             Post post = new Post(title, summary, body, cat);
@@ -84,8 +82,34 @@ public class BlogServlet extends HttpServlet {
                 System.out.println("\t\t Create post");
                 postDAO.create(post);
             }
+            resp.sendRedirect("/blog");
+        }
+        else {
+            Post post = new Post();
+            if(!isNullorEmpty(title)) post.setTitle(title);
+            if(!isNullorEmpty(body)) post.setBody(body);
+            if(!isNullorEmpty(summary)) post.setSummary(summary);
+            req.setAttribute("error", "Please, fill required fields");
+            req.setAttribute("post", post);
+            req.setAttribute("categories", categoryDAO.getAll());
+            //TODO ???
+            System.out.println("Please, fill required fields");
+            getServletContext().getRequestDispatcher("/jsp/newpost.jsp").forward(req, resp);
+            System.out.println("\t\tPlease, fill required fields");
         }
 
-        resp.sendRedirect("/blog");
+    }
+
+    private boolean ValidateParam(String title, String body, String summary){
+        if (isNullorEmpty(title)) return false;
+        if (isNullorEmpty(body)) return false;
+        if (isNullorEmpty(summary)) return false;
+        return true;
+
+    }
+
+    private boolean isNullorEmpty(String s){
+        return s == null || s.isEmpty();
     }
 }
+
