@@ -1,14 +1,19 @@
 package com.json.example.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class Person {
     private String firstName;
     private String lastName;
     private Integer age;
     private Adress adress;
     private List<Phone> phones;
+
+    public Person() {
+    }
 
     public Person(String firstName, String lastName, Integer age) {
         this.firstName = firstName;
