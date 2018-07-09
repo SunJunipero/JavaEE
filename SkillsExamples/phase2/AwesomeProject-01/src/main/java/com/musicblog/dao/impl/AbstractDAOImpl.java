@@ -3,6 +3,11 @@ package com.musicblog.dao.impl;
 import com.musicblog.dao.AbstractDAO;
 import com.musicblog.model.MainEntity;
 import com.musicblog.util.DatabaseUtil;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,6 +16,8 @@ import java.util.List;
 public abstract class AbstractDAOImpl <T extends MainEntity> implements AbstractDAO<T> {
 
     DatabaseUtil databaseUtil = new DatabaseUtil();
+    ApplicationContext context = new GenericXmlApplicationContext("classpath:springContext.xml");
+
 
         @Override
     public T create(T entity) {
@@ -100,8 +107,8 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
-            //connection = databaseUtil.gettingTestConnection();
-            connection = databaseUtil.getConnection();
+            connection = databaseUtil.gettingTestConnection();
+            //connection = databaseUtil.getConnection();
             statement = connection.prepareStatement(getByIdQuery());
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
@@ -117,6 +124,12 @@ public abstract class AbstractDAOImpl <T extends MainEntity> implements Abstract
             if (resultSet != null) try {resultSet.close(); } catch (SQLException e) {  e.printStackTrace();}
         }
         return null;
+    }
+
+    public T getByIdbySpring(Integer id) {
+        JdbcTemplate jdbcTemplate = context.getBean("jdbcTemplate", JdbcTemplate.class);
+        T entity = jdbcTemplate.queryForObject(getByIdQuery(), new Object[]{id}, (resultSet, i) -> getEntity(resultSet));
+        return entity;
     }
 
 

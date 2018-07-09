@@ -26,7 +26,15 @@ public class CategoryDAOTest {
     public void categoryDAOGetByIdTest(){
         CategoryDAO categoryDAO = new CategoryDAO();
         Category byId = categoryDAO.getById(3);
-        assertEquals("testValue3", byId.getName());
+        //Category byIdbySpring = categoryDAO.getByIdbySpring(3);
+        assertEquals("Edit Category", byId.getName());
+    }
+
+    @Test
+    public void categoryDAOGetBySpringIdTest(){
+        CategoryDAO categoryDAO = new CategoryDAO();
+        Category byIdbySpring = categoryDAO.getByIdbySpring(3);
+        assertEquals("Edit Category", byIdbySpring.getName());
     }
 
     @Test
