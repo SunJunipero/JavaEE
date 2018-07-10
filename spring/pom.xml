@@ -18,6 +18,7 @@
         <module>IoC</module>
         <module>MVC</module>
         <module>MVC-adv</module>
+        <module>SpringJDBC</module>
     </modules>
 
     
