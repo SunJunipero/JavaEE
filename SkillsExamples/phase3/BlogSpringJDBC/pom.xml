@@ -6,20 +6,14 @@
 
     <parent>
         <groupId>my.javaee</groupId>
-        <artifactId>JavaEE</artifactId>
+        <artifactId>phase3</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>my.javaee</groupId>
-    <artifactId>SkillsExamples</artifactId>
+    <artifactId>BlogSpringJDBC</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>phase1</module>
-        <module>phase2</module>
-        <module>phase3</module>
-    </modules>
+    <packaging>war</packaging>
 
     
 </project>
