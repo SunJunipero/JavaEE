@@ -1,4 +1,4 @@
-package com.musicblog.model;
+package com.musicblog;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

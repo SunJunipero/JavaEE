@@ -1,12 +1,10 @@
 package com.musicblog.dao.impl;
 
-import com.musicblog.dao.AbstractDAO;
-import com.musicblog.model.Category;
+import com.musicblog.Category;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class CategoryDAO extends AbstractDAOImpl<Category> {
 

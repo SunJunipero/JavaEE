@@ -3,29 +3,20 @@ package com.musicblog.model;
 import java.util.List;
 import java.util.Objects;
 
-public class Category extends MainEntity{
+public class Category extends BaseEntity {
     private String name;
     private List<Post> posts;
 
-    public Category(){
-
-    }
-
-    public Category(Integer id, String name){
-        this.id = id;
-        this.name = name;
+    public Category() {
     }
 
     public Category(String name) {
         this.name = name;
     }
 
-    public Integer getId(){
-        return id;
-    }
-
-    public void setId(){
-        this.id = id;
+    public Category(String name, List<Post> posts) {
+        this.name = name;
+        this.posts = posts;
     }
 
     public String getName() {

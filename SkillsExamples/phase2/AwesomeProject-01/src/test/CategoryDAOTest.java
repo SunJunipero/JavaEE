@@ -1,9 +1,8 @@
 import com.musicblog.dao.impl.CategoryDAO;
-import com.musicblog.model.Category;
+import com.musicblog.Category;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 

@@ -1,7 +1,7 @@
 package com.musicblog.dao.impl;
 
-import com.musicblog.model.Category;
-import com.musicblog.model.Post;
+import com.musicblog.Category;
+import com.musicblog.Post;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -3,8 +3,8 @@ package com.musicblog.controller;
 import com.musicblog.dao.AbstractDAO;
 import com.musicblog.dao.impl.CategoryDAO;
 import com.musicblog.dao.impl.PostDAO;
-import com.musicblog.model.Category;
-import com.musicblog.model.Post;
+import com.musicblog.Category;
+import com.musicblog.Post;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

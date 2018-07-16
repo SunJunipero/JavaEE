@@ -1,6 +1,6 @@
 package com.musicblog.model;
 
-public class MainEntity {
+public class BaseEntity {
     protected Integer id;
 
     public Integer getId() {

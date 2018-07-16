@@ -1,5 +1,5 @@
-import com.musicblog.model.Category;
-import com.musicblog.model.Post;
+import com.musicblog.Category;
+import com.musicblog.Post;
 import org.junit.Test;
 
 import java.util.ArrayList;
