@@ -6,10 +6,9 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.core.SqlParameter;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostDAO extends AbstractDAOImpl<Post> {
     @Override
@@ -26,9 +25,13 @@ public class PostDAO extends AbstractDAOImpl<Post> {
         return new Object[] {entity.getTitle(), entity.getSummary(), entity.getBody(), entity.getCategory().getId(), entity.getId()};
     }
 
+    public List<Post> getPostsByCategoryId (Integer categoryId){
+        return jdbc.query( databaseUtil.getQuery("get.post.by.category"), new Object[]{categoryId},(resultSet, i ) -> getEntity(resultSet));
+    }
+
     @Override
     public String getAllQuery() {
-        return null;
+        return databaseUtil.getQuery("get.all.posts");
     }
 
     @Override
@@ -38,7 +41,7 @@ public class PostDAO extends AbstractDAOImpl<Post> {
 
     @Override
     public String getDeleteQuery() {
-        return databaseUtil.getQuery("delete.post");
+        return databaseUtil.getQuery("delete.post.by.id");
     }
 
     @Override

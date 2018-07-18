@@ -14,7 +14,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractDAOImpl <T extends BaseEntity> implements AbstractDAO<T> {
@@ -22,8 +21,8 @@ public abstract class AbstractDAOImpl <T extends BaseEntity> implements Abstract
     private static final Logger log = LoggerFactory.getLogger(AbstractDAOImpl.class);
 
     DatabaseUtil databaseUtil = new DatabaseUtil();
-    ApplicationContext context = new GenericXmlApplicationContext("classpath:springContext.xml");
-    JdbcTemplate jdbc = context.getBean("jdbcTemplate", JdbcTemplate.class);
+    private ApplicationContext context = new GenericXmlApplicationContext("classpath:springContext.xml");
+    protected JdbcTemplate jdbc = context.getBean("jdbcTemplate", JdbcTemplate.class);
 
     @Override
     public T create(T entity) {
@@ -55,7 +54,6 @@ public abstract class AbstractDAOImpl <T extends BaseEntity> implements Abstract
 
     @Override
     public List<T> getAll() {
-        List<T> ts = new ArrayList<>();
         return jdbc.query(getAllQuery(), (resultSet, i ) -> getEntity(resultSet));
     }
 
