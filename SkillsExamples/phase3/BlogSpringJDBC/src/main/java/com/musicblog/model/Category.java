@@ -14,6 +14,11 @@ public class Category extends BaseEntity {
         this.name = name;
     }
 
+    public Category(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Category(String name, List<Post> posts) {
         this.name = name;
         this.posts = posts;

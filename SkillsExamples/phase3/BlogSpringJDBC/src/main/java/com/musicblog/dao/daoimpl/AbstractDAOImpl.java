@@ -10,13 +10,11 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
-import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Types;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractDAOImpl <T extends BaseEntity> implements AbstractDAO<T> {
@@ -41,26 +39,28 @@ public abstract class AbstractDAOImpl <T extends BaseEntity> implements Abstract
 
     @Override
     public T update(T entity) {
+        jdbc.update(getEditQuery(), fillEditStatement(entity));
         return null;
     }
 
     @Override
     public void delete(T entity) {
-
+        jdbc.update(getDeleteQuery(), entity.getId());
     }
 
     @Override
     public T getById(Integer id) {
-        return null;
+        return jdbc.queryForObject(getByIdQuery(), new Object[]{id}, (resultSet, i) -> getEntity(resultSet));
     }
 
     @Override
     public List<T> getAll() {
-        return null;
+        List<T> ts = new ArrayList<>();
+        return jdbc.query(getAllQuery(), (resultSet, i ) -> getEntity(resultSet));
     }
 
     public abstract PreparedStatementCreator fillCreateStatement(PreparedStatementCreatorFactory creatorFactory, T entity);
-    public abstract void fillEditStatement(PreparedStatement statement, T entity);
+    public abstract Object[] fillEditStatement( T entity);
 
     public abstract String getAllQuery();
     public abstract String getByIdQuery();

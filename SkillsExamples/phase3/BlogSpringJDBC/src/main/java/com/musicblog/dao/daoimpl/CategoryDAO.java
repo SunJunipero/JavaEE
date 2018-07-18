@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.SqlParameter;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Types;
 
 public class CategoryDAO extends AbstractDAOImpl<Category> {
@@ -17,23 +18,23 @@ public class CategoryDAO extends AbstractDAOImpl<Category> {
     }
 
     @Override
-    public void fillEditStatement(PreparedStatement statement, Category entity) {
-
+    public Object[] fillEditStatement(Category entity) {
+        return new Object[]{entity.getName(), entity.getId()};
     }
 
     @Override
     public String getAllQuery() {
-        return null;
+        return databaseUtil.getQuery("get.all.categories");
     }
 
     @Override
     public String getByIdQuery() {
-        return null;
+        return databaseUtil.getQuery("get.category.by.id");
     }
 
     @Override
     public String getDeleteQuery() {
-        return null;
+        return databaseUtil.getQuery("delete.category");
     }
 
     @Override
@@ -43,11 +44,16 @@ public class CategoryDAO extends AbstractDAOImpl<Category> {
 
     @Override
     public String getEditQuery() {
-        return null;
+        return databaseUtil.getQuery("update.category") ;
     }
 
     @Override
     public Category getEntity(ResultSet set) {
+        try {
+            return new Category(set.getInt("id"), set.getString("name"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

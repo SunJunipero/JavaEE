@@ -9,7 +9,7 @@
         </layout>
     </appender>
 
-    <category name="com.musicblog.dao.daoimpl.AbstractDAOImpl">
+    <category name="com.musicblog">
         <priority value="debug"/>
         <appender-ref ref="consoleAppender"/>
     </category>
