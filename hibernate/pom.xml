@@ -16,7 +16,7 @@
 
     <modules>
         <module>part1</module>
-        <module>part2</module>
+        <module>CRUD</module>
     </modules>
 
     
