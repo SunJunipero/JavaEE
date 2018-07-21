@@ -1,10 +1,14 @@
-package com.hebernate.examples.model;
+package com.hibernate.examples.model;
 
 import java.util.List;
 
 public class Genre extends BaseEntity{
     private String genre_name;
     private List<SubGenre> subGenres;
+
+    public Genre(){
+
+    }
 
     public Genre(String genre_name){
         this.genre_name = genre_name;

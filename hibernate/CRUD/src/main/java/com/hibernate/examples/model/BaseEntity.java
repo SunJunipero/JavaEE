@@ -1,4 +1,4 @@
-package com.hebernate.examples.model;
+package com.hibernate.examples.model;
 
 public class BaseEntity {
     protected Integer id;

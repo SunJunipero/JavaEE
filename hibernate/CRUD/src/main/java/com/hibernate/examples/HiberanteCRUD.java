@@ -1,4 +1,4 @@
-package com.hebernate.examples;
+package com.hibernate.examples;
 
 public class HiberanteCRUD {
 }

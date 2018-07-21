@@ -1,8 +1,12 @@
-package com.hebernate.examples.model;
+package com.hibernate.examples.model;
 
 public class SubGenre extends BaseEntity {
     private String sub_genre_name;
     private Integer generid;
+
+    public SubGenre() {
+
+    }
 
     public SubGenre(String sub_genre_name, Integer generid) {
         this.sub_genre_name = sub_genre_name;
