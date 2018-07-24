@@ -1,11 +1,12 @@
 package com.hibernate.examples.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "genres", schema = "music_blog")
-public class Genre{
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -52,5 +53,14 @@ public class Genre{
 
     public void setSubGenres(List<SubGenre> subGenres) {
         this.subGenres = subGenres;
+    }
+
+    @Override
+    public String toString() {
+        return "Genre{" +
+                "id=" + id +
+                ", genre_name='" + genre_name + '\'' +
+                ", subGenres=" + subGenres +
+                '}';
     }
 }

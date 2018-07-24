@@ -48,4 +48,11 @@ public class SubGenre  {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
+
+    @Override
+    public String toString() {
+        return "SubGenre{" +
+                "id=" + id +
+                ", sub_genre_name='" + sub_genre_name + '\'';
+    }
 }
