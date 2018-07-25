@@ -17,6 +17,7 @@
     <modules>
         <module>part1</module>
         <module>CRUD</module>
+        <module>Criteria</module>
     </modules>
 
 </project>

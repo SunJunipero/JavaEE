@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 public class HibernateCRUD {
@@ -46,7 +47,9 @@ public class HibernateCRUD {
 //        getVsLoad();
 //
  //       update();
-        delete();
+//        delete();
+       // manyToOne();
+        addGenreAndSubGenre();
 
         destroy();
     }
@@ -118,6 +121,43 @@ public class HibernateCRUD {
         session.beginTransaction();
         SubGenre subGenre = session.load(SubGenre.class, 12);
         session.delete(subGenre);
+        session.getTransaction().commit();
+    }
+
+    private static void manyToOne(){
+        log.info("==============ManyToOne=================");
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+
+        List<SubGenre> subGenres = session.createQuery("from SubGenre ").list();
+
+        for (SubGenre subGenre : subGenres) {
+            log.debug("class subGenre : {}", subGenre.getClass().getCanonicalName());
+            log.debug("subGenre id: {}", subGenre.getId());
+            log.debug("subGenre id: {}", subGenre.getSub_genre_name());
+            log.debug("class Genre : {}", subGenre.getGenre().getClass().getCanonicalName());
+            log.debug("Genre id: {}", subGenre.getGenre().getId());
+            log.debug("Genre name: {}", subGenre.getGenre().getGenre_name());
+
+        }
+        session.getTransaction().commit();
+    }
+
+    private static void addGenreAndSubGenre(){
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        Genre new_genre = new Genre("new Genre");
+        /**
+         * If we comment line bellow (and SubGenre cascade's type - CascadeType.MERGE, CascadeType.REFRESH)
+         * , we'll get ConstraintViolationException
+         *
+         * avoid this exception - SubGenre cascade's type - CascadeType.ALL
+         */
+        session.save(new_genre);
+        SubGenre subGenre = new SubGenre("new SubGenre 2");
+        subGenre.setGenre(new_genre);
+        session.save(subGenre);
+
         session.getTransaction().commit();
     }
 }
