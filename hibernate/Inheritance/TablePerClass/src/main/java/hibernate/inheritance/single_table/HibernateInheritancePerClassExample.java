@@ -1,11 +1,11 @@
-package hibernate.inheritance.per_class;
+package hibernate.inheritance.single_table;
 
 
 
-        import hibernate.inheritance.per_class.model.CashPayment;
-        import hibernate.inheritance.per_class.model.ChequePayment;
-        import hibernate.inheritance.per_class.model.CreditCard;
-        import hibernate.inheritance.per_class.model.Payment;
+        import hibernate.inheritance.single_table.model.CashPayment;
+        import hibernate.inheritance.single_table.model.ChequePayment;
+        import hibernate.inheritance.single_table.model.CreditCard;
+        import hibernate.inheritance.single_table.model.Payment;
         import org.hibernate.Session;
         import org.hibernate.SessionFactory;
         import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

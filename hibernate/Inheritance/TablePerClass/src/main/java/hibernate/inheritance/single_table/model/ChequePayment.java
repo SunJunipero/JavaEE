@@ -1,13 +1,12 @@
-package hibernate.inheritance.per_class.model;
+package hibernate.inheritance.single_table.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "cheque_payment")
-@PrimaryKeyJoinColumn(name = "payment_id")
+@Table(name = "cheque_payment_full")
+//@AttributeOverrides({
+//        @AttributeOverride(name = "amount", column = @Column(name = "amount"))
+//})
 public class ChequePayment extends Payment {
     @Column(name = "bank_id")
     private String bankId;

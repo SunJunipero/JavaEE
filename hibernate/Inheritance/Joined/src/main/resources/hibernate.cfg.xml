@@ -17,9 +17,9 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!--<mapping class="hibernate.inheritance.joined.model.Payment"/>-->
-        <mapping class="hibernate.inheritance.per_class.model.CashPayment"/>
-        <mapping class="hibernate.inheritance.per_class.model.ChequePayment"/>
-        <mapping class="hibernate.inheritance.per_class.model.CreditCard"/>
+        <mapping class="hibernate.inheritance.single_table.model.CashPayment"/>
+        <mapping class="hibernate.inheritance.single_table.model.ChequePayment"/>
+        <mapping class="hibernate.inheritance.single_table.model.CreditCard"/>
     </session-factory>
 
 </hibernate-configuration>

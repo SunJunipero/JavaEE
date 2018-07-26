@@ -1,12 +1,9 @@
-package hibernate.inheritance.per_class.model;
+package hibernate.inheritance.single_table.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cheque_payment_full")
-//@AttributeOverrides({
-//        @AttributeOverride(name = "amount", column = @Column(name = "amount"))
-//})
+@DiscriminatorValue("2")
 public class ChequePayment extends Payment {
     @Column(name = "bank_id")
     private String bankId;

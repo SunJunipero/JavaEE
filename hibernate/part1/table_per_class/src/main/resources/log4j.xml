@@ -12,7 +12,7 @@
 
     <!-- all, trace, debug, info, warn, error, fatal, off -->
 
-    <category name="hibernate.inheritance.per_class">
+    <category name="hibernate.inheritance.single_table">
         <priority value="trace"/>
         <appender-ref ref="consoleLog"/>
     </category>

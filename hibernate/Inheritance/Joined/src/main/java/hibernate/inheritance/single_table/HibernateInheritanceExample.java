@@ -1,11 +1,11 @@
-package hibernate.inheritance.per_class;
+package hibernate.inheritance.single_table;
 
 
 
-        import hibernate.inheritance.per_class.model.CashPayment;
-        import hibernate.inheritance.per_class.model.ChequePayment;
-        import hibernate.inheritance.per_class.model.CreditCard;
-        import hibernate.inheritance.per_class.model.Payment;
+        import hibernate.inheritance.single_table.model.CashPayment;
+        import hibernate.inheritance.single_table.model.ChequePayment;
+        import hibernate.inheritance.single_table.model.CreditCard;
+        import hibernate.inheritance.single_table.model.Payment;
         import org.hibernate.Session;
         import org.hibernate.SessionFactory;
         import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -16,9 +16,9 @@ package hibernate.inheritance.per_class;
 
         import java.util.List;
 
-public class HibernateInheritancePerClassExample {
+public class HibernateInheritanceExample {
 
-    private static final Logger log = LoggerFactory.getLogger(HibernateInheritancePerClassExample.class);
+    private static final Logger log = LoggerFactory.getLogger(HibernateInheritanceExample.class);
 
     private static SessionFactory sessionFactory;
     private static ServiceRegistry serviceRegistry;
@@ -26,10 +26,10 @@ public class HibernateInheritancePerClassExample {
     private static void init() {
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-        configuration.addPackage("hibernate.inheritance.per_class.model").addAnnotatedClass(Payment.class);
-        configuration.addPackage("hibernate.inheritance.per_class.model").addAnnotatedClass(CashPayment.class);
-        configuration.addPackage("hibernate.inheritance.per_class.model").addAnnotatedClass(ChequePayment.class);
-        configuration.addPackage("hibernate.inheritance.per_class.model").addAnnotatedClass(CreditCard.class);
+        configuration.addPackage("hibernate.inheritance.joined.model").addAnnotatedClass(Payment.class);
+        configuration.addPackage("hibernate.inheritance.joined.model").addAnnotatedClass(CashPayment.class);
+        configuration.addPackage("hibernate.inheritance.joined.model").addAnnotatedClass(ChequePayment.class);
+        configuration.addPackage("hibernate.inheritance.joined.model").addAnnotatedClass(CreditCard.class);
         serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
@@ -44,22 +44,22 @@ public class HibernateInheritancePerClassExample {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        Payment payment = new Payment();
-        payment.setAmount(153.12);
-        session.save(payment);
-
-        CashPayment cashPayment = new CashPayment();
-        cashPayment.setAmount(553.1);
-        cashPayment.setCashDesk("super cash desk");
-        session.save(cashPayment);
-
-        ChequePayment chequePayment = new ChequePayment();
-        chequePayment.setAmount(5463.32);
-        chequePayment.setBankId("ALPHA");
-        session.save(chequePayment);
+//        Payment payment = new Payment();
+//        payment.setAmount(123.12);
+//        session.save(payment);
+//
+//        CashPayment cashPayment = new CashPayment();
+//        cashPayment.setAmount(423.1);
+//        cashPayment.setCashDesk("super cash desk");
+//        session.save(cashPayment);
+//
+//        ChequePayment chequePayment = new ChequePayment();
+//        chequePayment.setAmount(463.32);
+//        chequePayment.setBankId("ALPHA");
+//        session.save(chequePayment);
 
         CreditCard creditCard = new CreditCard();
-        creditCard.setAmount(5315d);
+        creditCard.setAmount(54535d);
         creditCard.setCardId("8137");
         session.save(creditCard);
 

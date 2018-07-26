@@ -1,4 +1,4 @@
-package hibernate.inheritance.per_class.model;
+package hibernate.inheritance.single_table.model;
 
 import javax.persistence.*;
 
