@@ -7,17 +7,19 @@
 
     <session-factory>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/music_blog</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/inheritance_joined</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
-        <!--<property name="default_schema">music_blog</property>-->
+        <!--<property name="default_schema">inheritance_joined</property>-->
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="current_session_context_class">thread</property>
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="com.hibernate.examples.model.Genre"/>
-        <mapping class="com.hibernate.examples.model.SubGenre"/>
+        <!--<mapping class="hibernate.inheritance.joined.model.Payment"/>-->
+        <mapping class="hibernate.inheritance.joined.model.CashPayment"/>
+        <mapping class="hibernate.inheritance.joined.model.ChequePayment"/>
+        <mapping class="hibernate.inheritance.joined.model.CreditCard"/>
     </session-factory>
 
 </hibernate-configuration>

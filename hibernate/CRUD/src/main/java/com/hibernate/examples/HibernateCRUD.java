@@ -25,8 +25,8 @@ public class HibernateCRUD {
     private static void init() {
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-        String default_schema = configuration.getProperties().getProperty("default_schema");
-        System.out.println("\t\t SCHEMA - " + default_schema);
+//        String default_schema = configuration.getProperties().getProperty("default_schema");
+//        System.out.println("\t\t SCHEMA - " + default_schema);
         configuration.addPackage("com.hibernate.examples.model").addAnnotatedClass(Genre.class);
         configuration.addPackage("com.hibernate.examples.model").addAnnotatedClass(SubGenre.class);
         serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
@@ -39,9 +39,9 @@ public class HibernateCRUD {
 
     public static void main(String[] args) {
         init();
-       // create();
+        create();
 //
-//       get();
+       //get();
 //       load();
 //
 //        getVsLoad();
@@ -49,7 +49,7 @@ public class HibernateCRUD {
  //       update();
 //        delete();
        // manyToOne();
-        addGenreAndSubGenre();
+       // addGenreAndSubGenre();
 
         destroy();
     }
@@ -58,12 +58,12 @@ public class HibernateCRUD {
         log.info("==============CREATE=================");
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Genre genre = new Genre("New Club");
+        //Genre genre = new Genre("New Club");
         //Region region = new Region("Saint-Petersburg!");
-        session.save(genre);
+        //session.save(genre);
         session.getTransaction().commit();
-        id = genre.getId();
-        System.out.println(id);
+//        id = genre.getId();
+//        System.out.println(id);
     }
 
     private static void get(){
