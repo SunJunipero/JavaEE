@@ -1,4 +1,4 @@
-package hibernate.inheritance.joined.model;
+package hibernate.inheritance.per_class.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

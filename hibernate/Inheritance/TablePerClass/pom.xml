@@ -6,19 +6,13 @@
 
     <parent>
         <groupId>my.javaee</groupId>
-        <artifactId>hibernate</artifactId>
+        <artifactId>Inheritance</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>Inheritance</artifactId>
+    <artifactId>TablePerClass</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>Joined</module>
-        <module>TablePerClass</module>
-    </modules>
+    <packaging>war</packaging>
 
     
 </project>

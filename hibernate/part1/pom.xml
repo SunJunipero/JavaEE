@@ -10,12 +10,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>my.javaee</groupId>
     <artifactId>part1</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>config-xml-mapping-annotations</module>
+        <module>table_per_class</module>
     </modules>
 
     

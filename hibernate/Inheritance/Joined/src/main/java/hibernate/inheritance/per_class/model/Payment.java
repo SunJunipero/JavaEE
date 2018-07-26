@@ -1,4 +1,4 @@
-package hibernate.inheritance.joined.model;
+package hibernate.inheritance.per_class.model;
 
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "payment_id")
-    protected Integer paymentId;
+    private Integer paymentId;
 
     @Column(name = "amount")
     private Double amount;

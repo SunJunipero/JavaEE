@@ -10,8 +10,7 @@
         <artifactId>Inheritance</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <groupId>my.javaee</groupId>
+    
     <artifactId>Joined</artifactId>
     <version>1.0-SNAPSHOT</version>
 

@@ -8,6 +8,8 @@ import org.hibernate.service.ServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 public class HibernateConfigXMLMappingAnnotations {
 
     private static final Logger log = LoggerFactory.getLogger(HibernateConfigXMLMappingAnnotations.class);
@@ -39,13 +41,13 @@ public class HibernateConfigXMLMappingAnnotations {
         s.beginTransaction();
 
         //s.save(new hibernate.Region("Krasnoe Selo"));
-        Region o = new Region("looool");
-        s.save(o);
+//        Region o = new Region("looool");
+//        s.save(o);
 
-//        List<hibernate.Region> regionList = s.createQuery("from hibernate.Region").list();
-//        for (hibernate.Region r : regionList) {
-//            System.out.println(r);
-//        }
+        List<Region> regionList = s.createQuery("from Region").list();
+        for (Region r : regionList) {
+            System.out.println(r);
+        }
 
         s.getTransaction().commit();
 
