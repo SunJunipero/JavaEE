@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cash_payment")
-@PrimaryKeyJoinColumn(name = "payment_id")
+@PrimaryKeyJoinColumn(name = "paymentt_id")
 public class CashPayment extends Payment {
 
     @Column(name = "cash_desk")

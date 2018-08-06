@@ -44,26 +44,32 @@ public class HibernateInheritanceSingleTableExample {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        Payment payment = new Payment();
-        payment.setAmount(153.12);
-        session.save(payment);
+//        Payment payment = new Payment();
+//        payment.setAmount(153.12);
+//        session.save(payment);
+//
+//        CashPayment cashPayment = new CashPayment();
+//        cashPayment.setAmount(553.1);
+//        cashPayment.setCashDesk("super cash desk");
+//        session.save(cashPayment);
+//
+//        ChequePayment chequePayment = new ChequePayment();
+//        chequePayment.setAmount(5463.32);
+//        chequePayment.setBankId("ALPHA");
+//        session.save(chequePayment);
+//
+//        CreditCard creditCard = new CreditCard();
+//        creditCard.setAmount(5315d);
+//        creditCard.setCardId("8137");
+//        session.save(creditCard);
 
-        CashPayment cashPayment = new CashPayment();
-        cashPayment.setAmount(553.1);
-        cashPayment.setCashDesk("super cash desk");
-        session.save(cashPayment);
 
-        ChequePayment chequePayment = new ChequePayment();
-        chequePayment.setAmount(5463.32);
-        chequePayment.setBankId("ALPHA");
-        session.save(chequePayment);
-
-        CreditCard creditCard = new CreditCard();
-        creditCard.setAmount(5315d);
-        creditCard.setCardId("8137");
-        session.save(creditCard);
-
-
+        /**
+         * select payment0_.payment_id as payment_2_0_, payment0_.amount as amount3_0_,
+         * payment0_.cash_desk as cash_des4_0_, payment0_.bank_id as bank_id5_0_,
+         * payment0_.credit_number as credit_n6_0_, payment0_.payment_type as payment_1_0_
+         * from single_table.payments payment0_
+         */
         List<Payment> payments = session.createQuery("from Payment ").list();
         for (Payment pay: payments) {
             log.info("Payment: class: {}, toString: {}", pay.getClass().getCanonicalName(), pay);

@@ -44,26 +44,39 @@ public class HibernateInheritancePerClassExample {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        Payment payment = new Payment();
-        payment.setAmount(153.12);
-        session.save(payment);
-
+//        Payment payment = new Payment();
+//        payment.setAmount(153.12);
+//        session.save(payment);
+//
         CashPayment cashPayment = new CashPayment();
         cashPayment.setAmount(553.1);
         cashPayment.setCashDesk("super cash desk");
         session.save(cashPayment);
 
-        ChequePayment chequePayment = new ChequePayment();
-        chequePayment.setAmount(5463.32);
-        chequePayment.setBankId("ALPHA");
-        session.save(chequePayment);
+//        ChequePayment chequePayment = new ChequePayment();
+//        chequePayment.setAmount(5463.32);
+//        chequePayment.setBankId("ALPHA");
+//        session.save(chequePayment);
+//
+//        CreditCard creditCard = new CreditCard();
+//        creditCard.setAmount(5315d);
+//        creditCard.setCardId("8137");
+//        session.save(creditCard);
 
-        CreditCard creditCard = new CreditCard();
-        creditCard.setAmount(5315d);
-        creditCard.setCardId("8137");
-        session.save(creditCard);
 
-
+        /**
+         * select payment0_.payment_id as payment_1_3_, payment0_.amount as amount2_3_,
+         * payment0_.cash_desk as cash_des1_0_, payment0_.bank_id as bank_id1_1_,
+         * payment0_.credit_number as credit_n1_2_, payment0_.clazz_ as clazz_ from
+         * ( select payment_id, amount, null::varchar as cash_desk, null::varchar as bank_id,
+         * null::varchar as credit_number, 0 as clazz_ from table_per_class.payments_full union
+         * all select payment_id, amount, cash_desk, null::varchar as bank_id, null::varchar
+         * as credit_number, 1 as clazz_ from table_per_class.cash_payment_full union all
+         * select payment_id, amount, null::varchar as cash_desk, bank_id, null::varchar
+         * as credit_number, 2 as clazz_ from table_per_class.cheque_payment_full union
+         * all select payment_id, amount, null::varchar as cash_desk, null::varchar as bank_id,
+         * credit_number, 3 as clazz_ from table_per_class.credit_payment_full ) payment0_
+         */
         List<Payment> payments = session.createQuery("from Payment ").list();
         for (Payment pay: payments) {
             log.info("Payment: class: {}, toString: {}", pay.getClass().getCanonicalName(), pay);

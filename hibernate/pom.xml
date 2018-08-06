@@ -19,6 +19,7 @@
         <module>part1</module>
         <module>CRUD</module>
         <module>Inheritance</module>
+        <module>SecondCash</module>
     </modules>
 
     <dependencies>
