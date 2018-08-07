@@ -63,12 +63,8 @@ public class SecondCacheExample {
     private SessionFactory getSessionFactory(){
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-//        configuration.addPackage("com.cashexamples.model").addAnnotatedClass(Genre.class);
-//        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
        return   configuration.buildSessionFactory();
     }
 
-//    private static void destroy() {
-//        StandardServiceRegistryBuilder.destroy(serviceRegistry);
-//    }
+
 }
