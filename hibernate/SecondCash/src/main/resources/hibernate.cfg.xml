@@ -16,6 +16,20 @@
         <property name="current_session_context_class">thread</property>
         <property name="hbm2ddl.auto">update</property>
 
+        <!-- Enable the second-level cache -->
+        <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        <!--<property name="cache.region.factory.class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
+        <property name="cache.use_second_level_cache">true</property>
+        <!--<property name="cache.use_second_level_cache">false</property>-->
+        <!--<property name="generate_statistics">true</property>-->
+        <!--<property name="cache.use_structured_entries">true</property>-->
+        <!--<property name="cache.use_query_cache">true</property>-->
+        <!--<property name="cache.use_query_cache">false</property>-->
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+
+
         <mapping class="com.cashexamples.model.Genre"/>
     </session-factory>
 

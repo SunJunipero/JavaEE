@@ -9,6 +9,8 @@ import org.hibernate.service.ServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+
 public class HibernateCashExample {
 
     private static final Logger log = LoggerFactory.getLogger(HibernateCashExample.class);
@@ -27,11 +29,18 @@ public class HibernateCashExample {
          * INFO  2018-08-07 00:24:54,676 [HibernateCashExample] - Genre: Genre{id=1, genre_name='ambient/new age'
          *
          * Сессия в данном случае одна и та же, поэтому запрос к БД делается только в первый раз
+         *
+         * Если расскоменнтировать - то создаться новая сессия из-за чего запрос к БД сделается
+         * повторно
          */
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         checkSessionOne(session);
+        //comment below
+        //session.getTransaction().commit();
         session = sessionFactory.getCurrentSession();
+        //comment below
+        //session.beginTransaction();
         checkSessionOne(session);
         session.getTransaction().commit();
         destroy();
@@ -41,17 +50,18 @@ public class HibernateCashExample {
 
     private static void checkSessionOne(Session session) {
         log.info("session cash: {}", session.hashCode());
-        Genre genre = (Genre) session.get(Genre.class, 1);
+        //System.out.println(session.hashCode());
+        Genre genre = ((Genre) session.get(Genre.class, 1));
+        //System.out.println(genre);
         log.info("Genre: {}", genre);
-        //System.out.println("Region:" + r);
     }
 
     private static void init(){
         Configuration configuration = new Configuration();
         configuration.configure("hibernate.cfg.xml");
-        configuration.addPackage("com.cashexamples.model").addAnnotatedClass(Genre.class);
-        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-        sessionFactory =  configuration.buildSessionFactory(serviceRegistry);
+//        configuration.addPackage("com.cashexamples.model").addAnnotatedClass(Genre.class);
+//        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        sessionFactory =  configuration.buildSessionFactory();
     }
     private static void destroy() {
         StandardServiceRegistryBuilder.destroy(serviceRegistry);

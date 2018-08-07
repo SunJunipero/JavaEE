@@ -1,8 +1,13 @@
 package com.cashexamples.model;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
 
 @Entity
+// Аннотация необходима для работы кеша. Отключать при отклюении кэша
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "genres")
 public class Genre {
     @Id
