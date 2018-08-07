@@ -89,6 +89,7 @@ public class CacheQueryExample {
          * В данном случае id запомнились в перовом запросе, так как мы импользовали query cache.
          *
          *
+         *
          */
 
         CacheQueryExample cacheQueryExample = new CacheQueryExample();
