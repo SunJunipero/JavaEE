@@ -34,9 +34,4 @@ public class Example {
         Genre wow_genre = genreService.getGenre("wow genre");
         genreService.deleteGenre(wow_genre);
     }
-
-    
-
-
-
 }
