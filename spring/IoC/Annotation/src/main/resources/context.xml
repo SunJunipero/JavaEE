@@ -29,7 +29,7 @@
 
     <bean id="car" class="beans.Car">
         <property name="id" value="121"/>
-        <property name="com.musicblog.model" value="Acura"/>
+        <property name="model" value="Acura"/>
         <property name="year" value="2014"/>
         <property name="serviceDate" ref="date"/>
     </bean>

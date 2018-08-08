@@ -12,6 +12,7 @@ public class GenreServiceImpl implements GenreService {
     public void setGenreDAO (GenreDAO genreDAO){
         this.genreDAO = genreDAO;
     }
+
     @Override
     @Transactional
     public Integer createGenre(Genre genre) {

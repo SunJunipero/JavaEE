@@ -16,9 +16,11 @@
         <property name="password" value="root"/>
     </bean>
 
-    <bean id="genreDAO" class="com.springhibernate.example.dao.HiberateGenreDAOImpl"/>
+    <!--<bean id="genreDAO" class="com.springhibernate.example.dao.HiberateGenreDAOImpl"/>-->
 
-    <bean id="genreService" class="com.springhibernate.example.service.GenreServiceImpl">
+    <bean id="genreDAO" class="com.springhibernate.example.dao.SpringJDBCDAOImpl"/>
+
+    <bean id="genreService" class="com.springhibernate.example.service.GenreServiceSpringJDBCImpl">
         <property name="genreDAO" ref="genreDAO"/>
     </bean>
 
@@ -30,7 +32,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="com.springhibernate.example.model"/>
         <property name="hibernateProperties">
