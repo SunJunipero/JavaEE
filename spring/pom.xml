@@ -19,6 +19,7 @@
         <module>MVC</module>
         <module>MVC-adv</module>
         <module>SpringJDBC</module>
+        <module>Spring-Hibernate</module>
     </modules>
 
     
