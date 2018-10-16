@@ -20,6 +20,7 @@
         <module>MVC-adv</module>
         <module>SpringJDBC</module>
         <module>Spring-Hibernate</module>
+        <module>MVC-full</module>
     </modules>
 
     
