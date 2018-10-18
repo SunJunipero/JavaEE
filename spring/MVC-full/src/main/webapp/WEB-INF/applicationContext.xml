@@ -14,5 +14,17 @@
         </constructor-arg>
     </bean>
 
+    <bean id="taskDAO" class="com.example.taskmanager.dao.AbstractDAOImpl">
+        <constructor-arg>
+            <value>com.example.taskmanager.model.Task</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="userDAO" class="com.example.taskmanager.dao.AbstractDAOImpl">
+        <constructor-arg>
+            <value>com.example.taskmanager.model.User</value>
+        </constructor-arg>
+    </bean>
+
 
 </beans>
