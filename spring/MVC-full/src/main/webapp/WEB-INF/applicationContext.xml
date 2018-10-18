@@ -8,5 +8,11 @@
     <context:annotation-config/>
     <!--Scan package for controllers -->
 
+    <bean id="projectDAO" class="com.example.taskmanager.dao.AbstractDAOImpl">
+        <constructor-arg>
+            <value>com.example.taskmanager.model.Project</value>
+        </constructor-arg>
+    </bean>
+
 
 </beans>
