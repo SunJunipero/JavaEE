@@ -21,6 +21,7 @@
         <module>SpringJDBC</module>
         <module>Spring-Hibernate</module>
         <module>MVC-full</module>
+        <module>MVC2</module>
     </modules>
 
     
