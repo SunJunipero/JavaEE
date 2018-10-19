@@ -8,6 +8,7 @@ import com.example.taskmanager.validation.TaskValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomCollectionEditor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -16,17 +17,18 @@ import org.springframework.web.bind.annotation.*;
 import java.beans.PropertyEditorSupport;
 import java.util.List;
 
+@Controller
 public class TaskController {
     @Autowired
-    @Qualifier(value = "taskDao")
+    @Qualifier(value = "taskDAO")
     private AbstractDAO taskDao;
 
     @Autowired
-    @Qualifier(value = "projectDao")
+    @Qualifier(value = "projectDAO")
     private AbstractDAO projectDao;
 
     @Autowired
-    @Qualifier(value = "userDao")
+    @Qualifier(value = "userDAO")
     private AbstractDAO userDao;
 
     @Autowired

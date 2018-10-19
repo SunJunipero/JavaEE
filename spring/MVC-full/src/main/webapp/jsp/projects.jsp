@@ -8,7 +8,7 @@
     <c:forEach items="${projects}" var="p">
         <tr>
             <td><c:out value="${p.name}"/></td>
-            <td><a href="projects/edit/${p.projectId}">Edit</a>&nbsp;<a href="projects/delete/${p.projectId}">Delete</a></td>
+            <td><a href="projects/edit/${p.project_id}">Edit</a>&nbsp;<a href="projects/delete/${p.project_id}">Delete</a></td>
 
         </tr>
     </c:forEach>
@@ -16,7 +16,7 @@
 <br>
 
 <form:form commandName="project" method="POST" >
-    <form:hidden path="projectId"/>
+    <form:hidden path="project_id"/>
 
     <table>
         <tr>

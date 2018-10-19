@@ -16,30 +16,25 @@ public class AbstractDAOImpl<T> implements AbstractDAO<T> {
         this.type = type;
     }
 
-    @Override
     public T getById(Integer id) {
         return ht.get(type, id);
     }
 
-    @Override
     public List<T> getAll() {
         return ht.loadAll(type);
     }
 
-    @Override
     public T create(T entity) {
         ht.save(entity);
         return entity;
     }
 
-    @Override
     public T update(T entity) {
         ht.getSessionFactory().getCurrentSession().clear();
         ht.saveOrUpdate(entity);
         return entity;
     }
 
-    @Override
     public void delete(T entity) {
         ht.delete(entity);
     }

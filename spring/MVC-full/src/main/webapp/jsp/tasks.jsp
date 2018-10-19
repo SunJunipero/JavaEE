@@ -16,7 +16,7 @@
                     <c:out value="${u.name}"/>&nbsp;
                 </c:forEach>
             </td>
-            <td><a href="tasks/edit/${t.taskId}">Edit</a>&nbsp;<a href="tasks/delete/${t.taskId}">Delete</a></td>
+            <td><a href="tasks/edit/${t.task_id}">Edit</a>&nbsp;<a href="tasks/delete/${t.task_id}">Delete</a></td>
 
         </tr>
     </c:forEach>
@@ -24,7 +24,7 @@
 <br>
 
 <form:form commandName="task" method="POST" action="/addtask">
-    <form:hidden path="taskId"/>
+    <form:hidden path="task_id"/>
 
     <table>
         <tr>
@@ -36,14 +36,14 @@
 
         <tr>
             <td>Project</td>
-            <td><form:select path="project" items="${projects}" itemLabel="name" itemValue="projectId"/></td>
+            <td><form:select path="project" items="${projects}" itemLabel="name" itemValue="project_id"/></td>
             <td><form:errors path="project"/></td>
         </tr>
 
         <tr>
             <td>Users</td>
             <td><form:select path="users" items="${users}" multiple="multiple" size="5" itemLabel="name"
-                             itemValue="userId"/></td>
+                             itemValue="user_id"/></td>
             <td><form:errors path="users"/></td>
         </tr>
 

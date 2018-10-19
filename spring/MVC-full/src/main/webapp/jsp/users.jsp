@@ -11,7 +11,7 @@
             <td><c:out value="${u.name}"/></td>
             <td><c:out value="${u.email}"/></td>
 
-            <td><a href="users/edit/${u.userId}">Edit</a>&nbsp;<a href="users/delete/${u.userId}">Delete</a></td>
+            <td><a href="users/edit/${u.user_id}">Edit</a>&nbsp;<a href="users/delete/${u.user_id}">Delete</a></td>
 
         </tr>
     </c:forEach>
@@ -19,7 +19,7 @@
 <br>
 
 <form:form commandName="user" method="POST" action="/adduser" >
-    <form:hidden path="userId"/>
+    <form:hidden path="user_id"/>
 
     <table>
         <tr>
