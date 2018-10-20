@@ -22,6 +22,7 @@
         <module>Spring-Hibernate</module>
         <module>MVC-full</module>
         <module>MVC2</module>
+        <module>MVCform</module>
     </modules>
 
     

@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="header.jsp" %>
 <table border="1">
@@ -15,7 +16,7 @@
 </table>
 <br>
 
-<form:form commandName="project" method="POST" >
+<form:form  modelAttribute="project" method="POST" >
     <form:hidden path="project_id"/>
 
     <table>

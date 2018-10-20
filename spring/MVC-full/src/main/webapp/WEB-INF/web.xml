@@ -29,7 +29,7 @@
     <filter>
         <filter-name>hibernateFilter</filter-name>
         <filter-class>
-            org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+            org.springframework.orm.hibernate5.support.OpenSessionInViewFilter
         </filter-class>
     </filter>
 

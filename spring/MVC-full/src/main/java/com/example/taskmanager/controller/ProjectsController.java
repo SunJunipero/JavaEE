@@ -32,6 +32,7 @@ public class ProjectsController {
 
     @ModelAttribute("projects")
     public List<Project> getAllproject(){
+
         return projectDAO.getAll();
     }
 

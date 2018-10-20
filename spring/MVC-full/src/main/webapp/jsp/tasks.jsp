@@ -23,7 +23,7 @@
 </table>
 <br>
 
-<form:form commandName="task" method="POST" action="/addtask">
+<form:form modelAttribute="task" method="POST" action="/addtask">
     <form:hidden path="task_id"/>
 
     <table>
