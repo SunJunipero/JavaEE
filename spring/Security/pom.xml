@@ -12,6 +12,7 @@
     <modules>
         <module>Security01</module>
         <module>Security02</module>
+        <module>Security03</module>
     </modules>
 
 
