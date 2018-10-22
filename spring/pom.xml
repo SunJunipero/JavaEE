@@ -23,6 +23,7 @@
         <module>MVC-full</module>
         <module>MVC2</module>
         <module>MVCform</module>
+        <module>Security</module>
     </modules>
 
     
