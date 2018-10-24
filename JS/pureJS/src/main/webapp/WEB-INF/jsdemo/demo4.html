@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .highlight {background: #FA6;}
+    </style>
+
+    <script type="text/javascript">
+        function init() {
+            document.getElementById('button').onclick = function () {
+                alert('CLICK')
+            }
+        }
+        
+        function makeiteration(a) {
+            for (var i = 0; i < a.length; i++) {
+                alert(a[i]);
+            }
+        }
+
+        function itaration1() {
+            var arr1 = new Array('arr1', 'arr2', 5, 6, 9);
+            makeiteration(arr1);
+        }
+
+        function iteration2() {
+            var arr2 = ['arr', 'text', 10, 1011]
+            makeiteration(arr2);
+        }
+        
+        function testcondition() {
+            var a = document.getElementById('val1').value;
+            var b = document.getElementById('val2').value;
+            
+            if (a > b){
+                alert('a grater than b');
+            }
+            else {
+                alert('a less than b');
+            }
+        }
+
+        function brealoop() {
+            for (var i = 0; i < 10; i++) {
+                if (i < 5) continue;
+                if (i > 7) break;
+                alert(i);
+            }
+
+        }
+        
+        function selectvalue(select) {
+             id = select.options[select.selectedIndex].value;
+             document.getElementById('selected').innerHTML = '<i>' +  id  + '</id>';
+        }
+    </script>
+</head>
+<body onload="init()">
+
+    <input type="button" value="iteration1" onclick="itaration1()">&nbsp
+    <input type="button" value="iteration2" onclick="iteration2()"></br>
+
+    Input A<input type="text" class="" id="val1">
+    Input B<input type="text" id="val2"> <a href="" onclick="testcondition()">A grater than B ?</a></br>
+
+    <span onclick="brealoop()" style="size: 24px; color: red"> RUN BREAK LOOP</span></br>
+
+    <select onchange="selectvalue(this)">
+        <option value="1">value 1</option>
+        <option value="2">value 2</option>
+        <option value="3">value 3</option>
+    </select>
+    you selected  <span id="selected"></span></br>
+
+    <button id="button" value="">initialized button</button></br>
+
+    <input type="text" class="" onfocus="this.value = ''" value="input text" onblur="this.value = 'Input text'">
+
+</body>
+</html>

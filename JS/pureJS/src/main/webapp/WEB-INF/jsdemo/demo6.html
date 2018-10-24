@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .white{
+            color: white;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function turnToWhite() {
+            document.getElementsByClassName('red')[0].setAttribute("class", "white");
+        }
+
+        function turnToRed() {
+            document.getElementsByClassName('white')[0].setAttribute("class", "red");
+        }
+        
+        function returnColor() {
+            var s = document.getElementById('sp1');
+            s.style.color = 'red'
+            s.style.background = 'white';
+        }
+
+
+    </script>
+</head>
+<body>
+
+    <span id="sp1" class="red"> Change color</span> <br>
+    <input type="button" value="turn to white" onclick="turnToWhite()">
+    <!--<input type="button" value="return" onclick="returnColor()">-->
+    <input type="button" value="return" onclick="turnToRed()">
+
+</body>
+</html>

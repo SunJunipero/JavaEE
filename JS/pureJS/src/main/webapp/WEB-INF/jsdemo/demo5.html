@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        function submitForm() {
+            document.forms['form1'].submit();
+        }
+
+        function intercept() {
+            alert('Submit form2... set second value to 55');
+            document.form2.val2.value = 55;
+        }
+    </script>
+</head>
+<body>
+
+    <!--Submit form through JS-->
+    <form name="form1" action="fantomservlet">
+        Num1 <input type="text" name="val1" id="txt1">+
+        Num2 <input type="text" name="val2" id="txt2">
+        <input type="button" value="=" onclick="submitForm()">
+    </form>
+
+    <br>
+
+    <form name="form2" action="fantomservlet" onsubmit="intercept()">
+        Num1 <input type="text" name="val1" id="txt3">+
+        Num2 <input type="text" name="val2" id="txt4">
+        <input type="submit" value="=" onclick="submitForm()">
+    </form>
+
+
+</body>
+</html>

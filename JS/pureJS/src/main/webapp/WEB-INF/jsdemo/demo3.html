@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        function showlocation() {
+            alert(window.location);
+        }
+
+        function showprotocol() {
+            alert(window.location.protocol);
+        }
+
+        function showpath() {
+            alert(window.location.pathname);
+        }
+
+        function copytext() {
+            var text = document.getElementById('sourcetext').value;
+            document.getElementById('outputtext').value = text;
+        }
+    </script>
+</head>
+<body>
+
+    <input type="button" value="window.location" onclick="showlocation()">
+    <input type="button" value="window.location.path" onclick="showpath()">
+    <input type="button" value="window.location.protocol" onclick="showprotocol()"></br></br>
+
+    Show Text: <input type="text" id="sourcetext">
+                <input type="button" value="copy" onclick="copytext()">
+                <input type="text" id="outputtext">
+
+</body>
+</html>

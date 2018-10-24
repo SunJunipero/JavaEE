@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        function sum() {
+            var val1 = document.getElementById('val1').value;
+            var val2 = document.getElementById('val2').value;
+            var res = parseInt(val1, 10) + parseInt(val2, 10);
+            document.getElementById('result').value = res;
+        }
+
+        function show(input) {
+            alert(input.value)
+        }
+    </script>
+</head>
+<body>
+
+    <input type="text" id="val1" onclick="show(this)"> +
+    <input type="text" id="val2">
+    <input type="button" value="=" onclick="sum()"></br>
+    Result = <input type="text" id="result">
+
+</body>
+</html>

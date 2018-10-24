@@ -5,17 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>my.javaee</groupId>
-    <artifactId>Security</artifactId>
+    <artifactId>JS</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>Security01</module>
-        <module>Security02</module>
-        <module>Security03</module>
-        <module>Security04</module>
+        <module>pureJS</module>
     </modules>
-
 
     
 </project>

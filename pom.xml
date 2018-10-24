@@ -30,6 +30,7 @@
         <module>JDBC</module>
         <module>SkillsExamples</module>
         <module>REST</module>
+        <module>JS</module>
     </modules>
 
 
