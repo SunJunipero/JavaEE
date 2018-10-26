@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async and sync</title>
+    <script type="text/javascript">
+        function fillasync() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "text.txt", true);
+            xhr.onreadystatechange = function (e) {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText);
+                        document.getElementById('sp1').innerText = xhr.responseText;
+                    } else {
+                        console.error(xhr.statusText);
+                    }
+                }
+            };
+            xhr.onerror = function (e) {
+                console.error(xhr.statusText);
+            };
+            xhr.send(null);
+        }
+
+        function fillsync() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "text.txt", false);
+            xhr.send(null);
+            if(xhr.status == 200) {
+                document.getElementById('sp2').innerText = xhr.responseText;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="text will appear below" onclick="fillasync()"><br>
+    <span style="size: 24px; color: red" id="sp1"></span></br>
+    <input type="button" value="text will appear below" onclick="fillsync()"><br>
+    <span style="size: 24px; color: green" id="sp2"></span></br>
+</body>
+</html>
