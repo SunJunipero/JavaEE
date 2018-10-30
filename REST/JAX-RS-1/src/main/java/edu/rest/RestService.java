@@ -17,6 +17,9 @@ public class RestService {
         return Response.status(200).entity(out).build();
     }
 
+    /**
+     * http://localhost:8080/rest/service/query?from=1&to=200
+     */
     @GET
     @Path("/query")
     public Response queryParams(@QueryParam("from") int from, @QueryParam("to") @DefaultValue("10") int to){

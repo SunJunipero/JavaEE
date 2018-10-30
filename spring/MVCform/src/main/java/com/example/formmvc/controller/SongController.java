@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class StudentController {
+public class SongController {
     @RequestMapping(value = "/song", method = RequestMethod.GET)
     public ModelAndView song(){
         return new ModelAndView("song", "command", new Song());

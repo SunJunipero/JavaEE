@@ -13,6 +13,7 @@ public class TestController {
     public String login(Model model){
         return "login";
     }
+
     @RequestMapping(value="/loginfailed", method = RequestMethod.GET)
     public String loginerror(Model model) {
         model.addAttribute("error", "true");
