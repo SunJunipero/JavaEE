@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+
+    <context:annotation-config/>
+
+    <!--<context:component-scan base-package="com.project.ums.controller, com.project.ums.dao" />-->
+
+    <bean id="date" class="java.util.Date"/>
+
+    <bean id="user" class="com.project.ums.model.User"/>
+
+    <bean id="test_user" class="com.project.ums.model.User">
+        <property name="password" value="123"/>
+        <property name="adress" value="st test"/>
+        <property name="birthday" ref="date"/>
+        <property name="created_stamp" ref="date"/>
+        <property name="email" value="test@mail.ru"/>
+        <property name="is_active" value="true"/>
+        <property name="last_updated_stamp" ref="date"/>
+        <property name="user_first_name" value="f_name"/>
+        <property name="user_last_name" value="l_name"/>
+        <property name="user_name" value="u_name"/>
+        <property name="user_id" value="8"/>
+    </bean>
+
+    <bean id="ums_userDAO" class="com.project.ums.dao.UserDAOImpl">
+        <constructor-arg ref="user"/>
+    </bean>
+
+    <bean id="userController" class="com.project.ums.controller.UserController">
+        <property name="userDAO" ref="ums_userDAO"/>
+    </bean>
+
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/UMS"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.project.ums.model"/>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+                hibernate.show_sql=true
+                <!--hibernate.hbm2ddl.auto=create -->
+            </value>
+        </property>
+    </bean>
+
+    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+</beans>
