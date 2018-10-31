@@ -15,7 +15,7 @@ public class UserDAOTest {
 
     @Test
     public void getUserByIdTest(){
-        assertEquals("jreexp", userController.getUser(4).getUser_name());
+        assertEquals("jreexp", userController.getUser("4").getUser_name());
     }
 
     @Test
@@ -25,9 +25,8 @@ public class UserDAOTest {
 
     @Test
      public void deleteUser(){
-         User user = userController.getUser(3);
-         userController.delete(user);
-         assertNull(userController.getUser(3));
+         userController.delete("10");
+         assertNull(userController.getUser("10"));
      }
 
      @Test
@@ -39,9 +38,9 @@ public class UserDAOTest {
 
      @Test
      public void updateUser(){
-         User user1 = userController.getUser(10);
-         user1.setEmail("another@email.com");
-         userController.update(user1);
-         assertEquals("another@email.com", userController.getUser(10).getEmail());
+         User user1 = userController.getUser("10");
+         user1.setEmail("another123@email.com");
+         userController.update(user1, "10");
+         assertEquals("another123@email.com", userController.getUser("10").getEmail());
      }
 }
