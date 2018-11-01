@@ -1,7 +1,10 @@
 package com.example.usermng.model;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
 @Entity
 @Table(name = "user_table")
@@ -20,6 +23,12 @@ public class User {
 
     @Column(name = "login", nullable = false)
     private String login;
+
+    @Column(name = "birth", nullable = false)
+    private Date birth;
+
+    @Column(name = "last_activity", nullable = false)
+    private Date last_activity;
 
     public Long getUserId() {
         return userId;
@@ -51,5 +60,21 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public Date getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+
+    public Date getLast_activity() {
+        return last_activity;
+    }
+
+    public void setLast_activity(Date last_activity) {
+        this.last_activity = last_activity;
     }
 }

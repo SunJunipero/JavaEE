@@ -1,10 +1,14 @@
 package com.project.ums.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 @Entity
 @Table(name = "users")
+@XmlRootElement(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +34,6 @@ public class User {
     private Date last_updated_stamp;
     @Column(name = "address")
     private String address;
-
-
 
 
     public int getUser_id() {
@@ -114,12 +116,12 @@ public class User {
         this.last_updated_stamp = last_updated_stamp;
     }
 
-    public String getAdress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAdress(String adress) {
-        this.address = adress;
+    public void setAdress(String address) {
+        this.address = address;
     }
 
     @Override

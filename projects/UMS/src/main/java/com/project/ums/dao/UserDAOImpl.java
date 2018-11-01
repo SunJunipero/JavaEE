@@ -2,24 +2,18 @@ package com.project.ums.dao;
 
 import com.project.ums.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.orm.hibernate5.HibernateTemplate;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Transactional
+@Repository
 public class UserDAOImpl implements AbstractDAO<User> {
 
-    private User user;
+    private User user = new User();
 
     @Autowired
     protected HibernateTemplate ht;
-
-
-    public UserDAOImpl(User user) {
-        this.user = user;
-    }
 
     public User getById(int id) {
         return ht.get(user.getClass(), id);
