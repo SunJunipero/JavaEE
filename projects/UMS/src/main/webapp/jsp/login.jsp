@@ -7,7 +7,13 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="<c:url value="/j_spring_security_check"/>" method="post">
+    <c:if test="${not empty error}">
+        <div style="color: red;">
+            Login failed, try again.
+        </div>
+    </c:if>
+
+     <form action="<c:url value="/j_spring_security_check"/>" method='POST'>
         <table>
             <tr>
                 <td>Login:</td>

@@ -18,17 +18,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "users.html", method = RequestMethod.GET)
-    public String getUsers(ModelMap model){
-        List<User> users = userService.getAll();
-        model.put("users", users);
-        return "users";
-    }
+//    @RequestMapping(value = "users.html", method = RequestMethod.GET)
+//    public String getUsers(ModelMap model){
+//        List<User> users = userService.getAll();
+//        model.put("users", users);
+//        return "users";
+//    }
 
-    @RequestMapping(value = "users/{id}.html", method = RequestMethod.GET)
-    public ModelAndView getUser(@PathVariable String id, ModelMap model){
-        model.put("user", userService.getById(Integer.parseInt(id)));
-        return new ModelAndView("user",model);
-    }
+//    @RequestMapping(value = "users/{id}.html", method = RequestMethod.GET)
+//    public ModelAndView getUser(@PathVariable String id, ModelMap model){
+//        model.put("user", userService.getById(Integer.parseInt(id)));
+//        return new ModelAndView("user",model);
+//    }
 
 }

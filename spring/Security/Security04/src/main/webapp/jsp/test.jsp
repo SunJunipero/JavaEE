@@ -20,7 +20,7 @@
     <a href="<c:url value="/admin" />" > Administration</a>
 </sec:authorize>
 
-<a href="<c:url value="/contacts" />"/> Contacts</a>
+<a href="<c:url value="/contacts" />"></a> Contacts</a>
 
 <a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
 </body>
