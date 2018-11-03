@@ -25,6 +25,7 @@ public class SecurityController {
     public String welcome(Model model, Principal principal){
         String name = principal.getName();
         model.addAttribute("username", name);
+        model.addAttribute("users", userService.getAll());
         model.addAttribute("roles", SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         return "welcome";
     }
@@ -33,5 +34,11 @@ public class SecurityController {
     public String test(Model model){
         model.addAttribute("error", "true");
         return "login";
+    }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin(Model model){
+        model.addAttribute("users", userService.getAll());
+        return "admin";
     }
 }

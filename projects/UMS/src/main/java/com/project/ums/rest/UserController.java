@@ -25,10 +25,10 @@ public class UserController {
 //        return "users";
 //    }
 
-//    @RequestMapping(value = "users/{id}.html", method = RequestMethod.GET)
-//    public ModelAndView getUser(@PathVariable String id, ModelMap model){
-//        model.put("user", userService.getById(Integer.parseInt(id)));
-//        return new ModelAndView("user",model);
-//    }
+    @RequestMapping(value = "users/{id}.html", method = RequestMethod.GET)
+    public ModelAndView getUser(@PathVariable String id, ModelMap model){
+        model.put("user", userService.getById(Integer.parseInt(id)));
+        return new ModelAndView("user",model);
+    }
 
 }
