@@ -1,5 +1,6 @@
 package com.project.ums.controllers;
 
+import com.project.ums.model.User;
 import com.project.ums.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,6 +40,7 @@ public class SecurityController {
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(Model model){
         model.addAttribute("users", userService.getAll());
+        model.addAttribute("user", new User());
         return "admin";
     }
 }

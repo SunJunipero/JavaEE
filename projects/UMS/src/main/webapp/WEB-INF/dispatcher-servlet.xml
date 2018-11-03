@@ -79,5 +79,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--validation-->
+    <bean id="userValidator" name="userValidator" class="com.project.ums.validation.UserValidator"/>
+
+
 
 </beans>
