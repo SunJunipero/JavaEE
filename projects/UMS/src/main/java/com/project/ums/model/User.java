@@ -1,6 +1,6 @@
 package com.project.ums.model;
 
-import org.springframework.stereotype.Component;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -25,12 +25,16 @@ public class User {
     @Column(name = "email")
     private String email;
     @Column(name = "birthday")
+    @Temporal(value = TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date birthday;
     @Column(name = "is_active")
     private boolean is_active;
-    @Column(name = "created_stamp")
+    @Column(name = "created_stamp", nullable = true, insertable = true, updatable = true)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date created_stamp;
-    @Column(name = "last_updated_stamp")
+    @Column(name = "last_updated_stamp", nullable = true, insertable = true, updatable = true)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date last_updated_stamp;
     @Column(name = "address")
     private String address;
@@ -88,6 +92,11 @@ public class User {
         return birthday;
     }
 
+//    @PrePersist
+//    protected void updateBirthday(){
+//        birthday.setTime(birthday.getTime());
+//    }
+
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
@@ -108,6 +117,8 @@ public class User {
         this.created_stamp = created_stamp;
     }
 
+
+
     public Date getLast_updated_stamp() {
         return last_updated_stamp;
     }
@@ -116,11 +127,12 @@ public class User {
         this.last_updated_stamp = last_updated_stamp;
     }
 
+
     public String getAddress() {
         return address;
     }
 
-    public void setAdress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
