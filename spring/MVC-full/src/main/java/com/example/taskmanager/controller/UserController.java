@@ -57,7 +57,6 @@ public class UserController {
         userValidator.validate(user, result);
         if (result.hasErrors())
             return "/users";
-
         userDao.update(user);
         return "redirect:/users";
 

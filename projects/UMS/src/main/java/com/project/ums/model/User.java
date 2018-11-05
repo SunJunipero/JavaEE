@@ -92,10 +92,6 @@ public class User {
         return birthday;
     }
 
-//    @PrePersist
-//    protected void updateBirthday(){
-//        birthday.setTime(birthday.getTime());
-//    }
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;

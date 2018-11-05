@@ -25,13 +25,6 @@ public class UserController {
     @Autowired
     UserValidator userValidator;
 
-//    @RequestMapping(value = "users.html", method = RequestMethod.GET)
-//    public String getUsers(ModelMap model){
-//        List<User> users = userService.getAll();
-//        model.put("users", users);
-//        return "users";
-//    }
-
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String blankUser( Model model){
         model.addAttribute("user", new User());
@@ -60,29 +53,24 @@ public class UserController {
          return "update";
     }
 
-    /**
-     * add validation binding result
-     * @param user
-     * @return
-     */
     @RequestMapping(value = "adduser", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute User user, BindingResult result){
-//        userValidator.validate(user, result);
-        System.out.println(user);
+    public String addUser(@ModelAttribute User user, BindingResult result, Model model){
+        userValidator.validate(user, result);
+        if (result.hasErrors()){
+            return "/adduser";
+        }
         userService.create(user);
-//        if (result.hasErrors())
-//            return "/admin";
-//        userService.create(user);
         return "redirect:/admin";
     }
 
     @RequestMapping(value = "updateuser", method = RequestMethod.POST)
-    public String updateUser(@ModelAttribute User user, BindingResult result){
-//        userValidator.validate(user, result);
+    public String updateUser(@ModelAttribute User user, BindingResult result, Model model){
+        userValidator.validate(user, result);
+        if (result.hasErrors()){
+            model.addAttribute("user", userService.getById(user.getUser_id()));
+            return "/update";
+        }
         userService.update(user);
-//        if (result.hasErrors())
-//            return "/admin";
-//        userService.create(user);
         return "redirect:/admin";
     }
 

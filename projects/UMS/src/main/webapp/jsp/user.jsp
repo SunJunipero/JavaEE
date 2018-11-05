@@ -52,8 +52,8 @@
                 <td>${user.address}</td>
             </tr>
         </table>
-        <input type="submit" value="send action">
     </form>
+    <a href=/admin>back to admin page</a>
 
 </body>
 </html>

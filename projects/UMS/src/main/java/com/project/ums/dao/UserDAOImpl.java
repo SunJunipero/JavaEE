@@ -47,7 +47,7 @@ public class UserDAOImpl implements AbstractDAO<User> {
         user.setIs_active(entity.isIs_active());
         user.setLast_updated_stamp(entity.getLast_updated_stamp());
         user.setAddress(entity.getAddress());
-        session.saveOrUpdate(user);
+        session.update(user);
         return user;
     }
 
