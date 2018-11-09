@@ -20,4 +20,12 @@ public class Song {
     public void setSong_name(String song_name) {
         this.song_name = song_name;
     }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "song_id=" + song_id +
+                ", song_name='" + song_name + '\'' +
+                '}';
+    }
 }
