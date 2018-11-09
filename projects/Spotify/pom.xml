@@ -4,37 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>my.javaee</groupId>
-    <artifactId>JavaEE</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>Spotify</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>se.michaelthelin.spotify</groupId>
+            <artifactId>spotify-web-api-java</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>JSP</module>
-        <module>Servlets</module>
-        <module>JSTl</module>
-        <module>testWebApp</module>
-        <module>hibernate</module>
-        <module>spring</module>
-        <module>JDBC</module>
-        <module>SkillsExamples</module>
-        <module>REST</module>
-        <module>JS</module>
-        <module>projects</module>
-        <module>frontend</module>
-        <module>Mybatis</module>
-    </modules>
-
-
+    
 </project>
