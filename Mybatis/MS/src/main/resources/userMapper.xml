@@ -1,0 +1,77 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.userMapper">
+    <select id="selectUser" parameterType="Integer" resultType="users">
+           select user_id as "user_id",
+                  user_first_name as "user_first_name",
+                  user_last_name as "user_last_name",
+                  user_name as "user_name",
+                  password as "password",
+                  email as "email",
+                  birthday as "birthday",
+                  is_active as "is_active",
+                  created_stamp as "created_stamp",
+                  last_updated_stamp as "last_updated_stamp"
+                  from ums.public.users where user_id = #{user_id}
+    </select>
+
+    <select id="getAllUsers" resultType="users">
+          select user_id as "user_id",
+                  user_first_name as "user_first_name",
+                  user_last_name as "user_last_name",
+                  user_name as "user_name",
+                  password as "password",
+                  email as "email",
+                  birthday as "birthday",
+                  is_active as "is_active",
+                  created_stamp as "created_stamp",
+                  last_updated_stamp as "last_updated_stamp"
+                  from ums.public.users
+
+    </select>
+
+    <insert id="insertUser" parameterType="users" keyProperty="user_id" useGeneratedKeys="true">
+        insert into ums.public.users (
+            user_first_name,
+            user_last_name,
+            user_name,
+            password,
+            email,
+            birthday,
+            is_active,
+            created_stamp,
+            last_updated_stamp
+        )
+        values (
+            #{user_first_name},
+            #{user_last_name},
+            #{user_name},
+            #{password},
+            #{email},
+            #{birthday},
+            #{is_active},
+            #{created_stamp},
+            #{last_updated_stamp}
+        )
+    </insert>
+
+    <update id="updateUser" parameterType="users">
+        update ums.public.users set
+         user_first_name =#{user_first_name},
+         user_last_name =#{user_last_name},
+         user_name =#{user_name},
+         password =#{password},
+         email =#{email},
+         birthday =#{birthday},
+         is_active =#{is_active},
+         created_stamp =#{created_stamp},
+         last_updated_stamp =#{last_updated_stamp} where user_id =#{user_id}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer">
+        delete from ums.public.users where user_id =#{user_id}
+    </delete>
+
+</mapper>
