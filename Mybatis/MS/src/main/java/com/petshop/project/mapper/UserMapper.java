@@ -4,9 +4,11 @@ import com.petshop.project.model.User;
 import com.petshop.project.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class UserMapper {
     public User getUserById (Integer id){
         SqlSessionFactory sessionFactory = MyBatisUtil.getSessionFactory();
