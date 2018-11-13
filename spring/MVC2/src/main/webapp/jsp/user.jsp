@@ -8,7 +8,7 @@
 <body>
 
 <form method="POST" action="/users/delete">
-    <input type="hidden" name="userId" value="${user.userId}">
+    <input type="hidden" title="userId" value="${user.userId}">
 
     <table>
         <tr>

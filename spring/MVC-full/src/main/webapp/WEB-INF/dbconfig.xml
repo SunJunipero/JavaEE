@@ -14,24 +14,24 @@
         http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 
-    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/task_manager"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+    <bean title="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property title="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property title="url" value="jdbc:mysql://localhost:3306/task_manager"/>
+        <property title="username" value="root"/>
+        <property title="password" value="root"/>
     </bean>
 
     <tx:annotation-driven transaction-manager="txManager"/>
 
     <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
+        <property title="sessionFactory" ref="sessionFactory"/>
     </bean>
 
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.example.taskmanager.model"/>
-        <property name="hibernateProperties">
+        <property title="dataSource" ref="dataSource"/>
+        <property title="packagesToScan" value="com.example.taskmanager.model"/>
+        <property title="hibernateProperties">
             <value>
                 hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
                 hibernate.show_sql=true
@@ -40,8 +40,8 @@
         </property>
     </bean>
 
-    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
-        <property name="sessionFactory" ref="sessionFactory"/>
+    <bean title="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property title="sessionFactory" ref="sessionFactory"/>
     </bean>
 
 

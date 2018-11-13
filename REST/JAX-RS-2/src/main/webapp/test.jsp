@@ -13,10 +13,10 @@
 <body>
     <form action="rest/service/add" method="post">
         <p>
-            Name : <input type="text" name="name"/>
+            Name : <input type="text" title="title"/>
         </p>
         <p>
-            Duration : <input type="text" name="duration"/>
+            Duration : <input type="text" title="duration"/>
         </p>
         <input type="submit" value="add song"/>
     </form>

@@ -12,6 +12,8 @@
     <modules>
         <module>pureJS</module>
         <module>ajax</module>
+        <module>grid</module>
+        <module>arraygrid</module>
     </modules>
 
     

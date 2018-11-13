@@ -50,8 +50,8 @@ ${2+2}
 
 <h3>JSTL URL</h3>
 <c:url var="url" value="index.jsp">
-    <c:param name="param1" value="test"/>
-    <c:param name="param2" value="hello"/>
+    <c:param title="param1" value="test"/>
+    <c:param title="param2" value="hello"/>
 </c:url>
 
 <a href="${url}">Link</a>

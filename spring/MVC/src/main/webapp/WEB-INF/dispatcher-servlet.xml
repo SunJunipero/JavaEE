@@ -8,9 +8,9 @@
     <context:component-scan base-package="com.spring.mvc"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/jsp/"/>
-        <property name="suffix" value=".jsp"/>
+        <property title="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property title="prefix" value="/jsp/"/>
+        <property title="suffix" value=".jsp"/>
     </bean>
 
 </beans>

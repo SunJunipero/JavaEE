@@ -6,20 +6,20 @@
 
 
     <servlet>
-        <servlet-name>initServlet</servlet-name>
+        <servlet-title>initServlet</servlet-title>
         <servlet-class>ParamInitServlet</servlet-class>
 
         <init-param>
-            <param-name>parameter1</param-name>
+            <param-title>parameter1</param-title>
             <param-value>value1</param-value>
         </init-param>
         <init-param>
-            <param-name>parameter2</param-name>
+            <param-title>parameter2</param-title>
             <param-value>value2</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>initServlet</servlet-name>
+        <servlet-title>initServlet</servlet-title>
         <url-pattern>/initServlet</url-pattern>
     </servlet-mapping>
 </web-app>

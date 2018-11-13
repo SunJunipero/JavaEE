@@ -50,6 +50,16 @@ public class TestController {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/ref")
+    public String refPage(Model model) {
+        return "ref";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/testhtml")
+    public String htmlPage(Model model) {
+        return "testhtml";
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/delete")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteContact(Model model) {

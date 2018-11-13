@@ -9,7 +9,7 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var myObj = JSON.parse(this.responseText);
-                    document.getElementById("selected").innerHTML = myObj.name + ", " + myObj.age + ", " ;
+                    document.getElementById("selected").innerHTML = myObj.title + ", " + myObj.age + ", " ;
                 }
             };
             xmlhttp.open("GET", "init.txt", true);

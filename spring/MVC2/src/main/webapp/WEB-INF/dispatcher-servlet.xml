@@ -11,17 +11,17 @@
     <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>-->
 
     <bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-        <property name="supportedMediaTypes" value="application/xml"/>
+        <property title="supportedMediaTypes" value="application/xml"/>
     </bean>
 
     <bean id="jsonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
-        <property name="prefixJson" value="false"/>
-        <property name="supportedMediaTypes" value="application/json"/>
+        <property title="prefixJson" value="false"/>
+        <property title="supportedMediaTypes" value="application/json"/>
     </bean>
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
+        <property title="messageConverters">
             <list>
                 <ref bean="xmlMessageConverter"/>
                 <ref bean="jsonHttpMessageConverter"/>
@@ -36,15 +36,15 @@
 
 
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="order" value="1"/>
-        <property name="mediaTypes">
+        <property title="order" value="1"/>
+        <property title="mediaTypes">
             <map>
                 <entry key="json" value="application/json"/>
                 <entry key="xml" value="application/xml"/>
                 <entry key="html" value="text/html"/>
             </map>
         </property>
-        <property name="defaultViews">
+        <property title="defaultViews">
 
             <list>
                 <!-- JSON VIEW -->
@@ -59,11 +59,11 @@
 
         </property>
 
-        <!--<property name="ignoreAcceptHeader" value="true" />-->
+        <!--<property title="ignoreAcceptHeader" value="true" />-->
     </bean>
 
     <bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-        <property name="classesToBeBound">
+        <property title="classesToBeBound">
             <list>
                 <value>com.example.usermng.model.User</value>
                 <value>com.example.usermng.model.Users</value>
@@ -74,9 +74,9 @@
 
     <!--<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/jsp/"/>
-        <property name="suffix" value=".jsp"/>
+        <property title="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property title="prefix" value="/jsp/"/>
+        <property title="suffix" value=".jsp"/>
     </bean>
 
 

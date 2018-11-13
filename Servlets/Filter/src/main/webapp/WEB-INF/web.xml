@@ -6,11 +6,11 @@
 
 
     <filter>
-        <filter-name>authFilter</filter-name>
+        <filter-title>authFilter</filter-title>
         <filter-class>AuthFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>authFilter</filter-name>
+        <filter-title>authFilter</filter-title>
         <url-pattern>/welcome</url-pattern>
     </filter-mapping>
 

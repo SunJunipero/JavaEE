@@ -11,12 +11,12 @@
 
         <table>
             <tr>
-                <td>First name:</td>
+                <td>First title:</td>
                 <td><form:input path="user_first_name"/></td>
                 <td><form:errors path="user_first_name"/></td>
             </tr>
             <tr>
-                <td>Last name:</td>
+                <td>Last title:</td>
                 <td><form:input path="user_last_name"/></td>
                 <td><form:errors path="user_last_name"/></td>
             </tr>

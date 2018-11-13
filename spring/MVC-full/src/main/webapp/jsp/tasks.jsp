@@ -9,11 +9,11 @@
     </tr>
     <c:forEach items="${tasks}" var="t">
         <tr>
-            <td><c:out value="${t.name}"/></td>
-            <td><c:out value="${t.project.name}"/></td>
+            <td><c:out value="${t.title}"/></td>
+            <td><c:out value="${t.project.title}"/></td>
             <td>
                 <c:forEach var="u" items="${t.users}">
-                    <c:out value="${u.name}"/>&nbsp;
+                    <c:out value="${u.title}"/>&nbsp;
                 </c:forEach>
             </td>
             <td><a href="tasks/edit/${t.task_id}">Edit</a>&nbsp;<a href="tasks/delete/${t.task_id}">Delete</a></td>
@@ -29,20 +29,20 @@
     <table>
         <tr>
             <td>Name:</td>
-            <td><form:input path="name"/></td>
-            <td><form:errors path="name"/></td>
+            <td><form:input path="title"/></td>
+            <td><form:errors path="title"/></td>
 
         </tr>
 
         <tr>
             <td>Project</td>
-            <td><form:select path="project" items="${projects}" itemLabel="name" itemValue="project_id"/></td>
+            <td><form:select path="project" items="${projects}" itemLabel="title" itemValue="project_id"/></td>
             <td><form:errors path="project"/></td>
         </tr>
 
         <tr>
             <td>Users</td>
-            <td><form:select path="users" items="${users}" multiple="multiple" size="5" itemLabel="name"
+            <td><form:select path="users" items="${users}" multiple="multiple" size="5" itemLabel="title"
                              itemValue="user_id"/></td>
             <td><form:errors path="users"/></td>
         </tr>

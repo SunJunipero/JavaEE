@@ -26,7 +26,6 @@
     </environments>
 
     <mappers>
-        <!--<mapper class="com.example.simplebatis.SongsDao"/>-->
         <mapper resource="userMapper.xml"/>
     </mappers>
 

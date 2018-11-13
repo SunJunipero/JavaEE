@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -51,5 +53,24 @@ public class UserMapper {
         session.commit();
         session.close();
     }
+
+    public void deleteUsers(int[] users_ids){
+        for (int users_id : users_ids) {
+            deleteUser(users_id);
+        }
+    }
+
+    public void addUsers(User[] users){
+        for (User user : users) {
+            addUser(user);
+        }
+    }
+
+    public void updateUsers(User[] users){
+        for (User user : users) {
+            updateUser(user);
+        }
+    }
+
 
 }

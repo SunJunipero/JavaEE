@@ -1,21 +1,36 @@
 package com.petshop.project.model;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
+
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Date;
 
+@Component
 public class User {
+
     private Integer user_id;
     private String user_first_name;
     private String user_last_name;
     private String user_name;
     private String password;
     private String email;
-    private Date birthday;
     private boolean is_active;
-    private Date created_stamp;
-    private Date last_updated_stamp;
-    private String address;
 
+    public User() {
+    }
+
+    public User(Integer user_id, String user_first_name, String user_last_name, String user_name, String password, String email, boolean is_active) {
+        this.user_id = user_id;
+        this.user_first_name = user_first_name;
+        this.user_last_name = user_last_name;
+        this.user_name = user_name;
+        this.password = password;
+        this.email = email;
+        this.is_active = is_active;
+    }
 
     public int getUser_id() {
         return user_id;
@@ -65,44 +80,12 @@ public class User {
         this.email = email;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public boolean isIs_active() {
         return is_active;
     }
 
     public void setIs_active(boolean is_active) {
         this.is_active = is_active;
-    }
-
-    public Date getCreated_stamp() {
-        return created_stamp;
-    }
-
-    public void setCreated_stamp(Date created_stamp) {
-        this.created_stamp = created_stamp;
-    }
-
-    public Date getLast_updated_stamp() {
-        return last_updated_stamp;
-    }
-
-    public void setLast_updated_stamp(Date last_updated_stamp) {
-        this.last_updated_stamp = last_updated_stamp;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     @Override
@@ -114,11 +97,6 @@ public class User {
                 ", user_name='" + user_name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", birthday=" + birthday +
-                ", is_active=" + is_active +
-                ", created_stamp=" + created_stamp +
-                ", last_updated_stamp=" + last_updated_stamp +
-                ", address='" + address + '\'' +
                 '}';
     }
 }

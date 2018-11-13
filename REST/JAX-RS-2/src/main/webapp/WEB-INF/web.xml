@@ -5,19 +5,19 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-title>jersey-serlvet</servlet-title>
         <servlet-class>
             com.sun.jersey.spi.container.servlet.ServletContainer
         </servlet-class>
         <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-title>com.sun.jersey.config.property.packages</param-title>
             <param-value>edu.rest</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-title>jersey-serlvet</servlet-title>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 

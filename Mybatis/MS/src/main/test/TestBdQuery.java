@@ -29,10 +29,6 @@ public class TestBdQuery {
         user.setUser_name("JB");
         user.setPassword("qwerty");
         user.setEmail("jb@mail.ru");
-        user.setBirthday(new Date());
-        user.setIs_active(true);
-        user.setCreated_stamp(new Date());
-        user.setLast_updated_stamp(new Date());
 
         System.out.println(user);
 

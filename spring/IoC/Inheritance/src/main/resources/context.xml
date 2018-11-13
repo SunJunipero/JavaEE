@@ -3,23 +3,23 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
 
-    <bean name="date" class="java.util.Date"/>
+    <bean title="date" class="java.util.Date"/>
     
-    <bean name="person" abstract="true" class="bean.Person">
-        <property name="name" value="Kostya"/>
-        <property name="id" value="1231"/>
-        <property name="birth" ref="date"/>
+    <bean title="person" abstract="true" class="bean.Person">
+        <property title="title" value="Kostya"/>
+        <property title="id" value="1231"/>
+        <property title="birth" ref="date"/>
     </bean>
 
-    <bean name="adult" class="bean.Adult" parent="person">
-        <property name="number" value="12"/>
-        <property name="sirial" value="34"/>
-        <property name="snils" value="55"/>
+    <bean title="adult" class="bean.Adult" parent="person">
+        <property title="number" value="12"/>
+        <property title="sirial" value="34"/>
+        <property title="snils" value="55"/>
     </bean>
 
-    <bean name="child" class="bean.Child" parent="person">
-        <property name="name" value="Konstantin"/>
-        <property name="parent" ref="adult"/>
+    <bean title="child" class="bean.Child" parent="person">
+        <property title="title" value="Konstantin"/>
+        <property title="parent" ref="adult"/>
     </bean>
           
         

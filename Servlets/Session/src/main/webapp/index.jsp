@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="session1">
-    Type text : <input type="text" name="param1"/><br/>
+    Type text : <input type="text" title="param1"/><br/>
     <input type="submit" value="session1">
 </form>
 </body>

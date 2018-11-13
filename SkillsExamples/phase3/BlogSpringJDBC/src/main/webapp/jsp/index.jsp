@@ -39,7 +39,7 @@
                 <h2>Categories:</h2>
                 <ul>
                     <c:forEach items="${categories}" var="cat">
-                        <li><a href="/blog?category=${cat.id}">${cat.name}</a></li>
+                        <li><a href="/blog?category=${cat.id}">${cat.title}</a></li>
                     </c:forEach>
                 </ul>
             </td>

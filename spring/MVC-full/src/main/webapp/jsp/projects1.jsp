@@ -32,7 +32,7 @@
     </tr>
     <c:forEach items="${projects}" var="p">
         <tr>
-            <td><c:out value="${p.name}"/></td>
+            <td><c:out value="${p.title}"/></td>
             <td><a href="projects1/edit/${p.project_id}" onclick="edition()">Edit</a>&nbsp;<a href="projects1/delete/${p.project_id}">Delete</a></td>
 
         </tr>
@@ -46,8 +46,8 @@
     <table>
         <tr>
             <td>Name:</td>
-            <td><form:input path="name" id="input_name"/></td>
-            <td><form:errors path="name"/></td>
+            <td><form:input path="title" id="input_name"/></td>
+            <td><form:errors path="title"/></td>
 
         </tr>
 

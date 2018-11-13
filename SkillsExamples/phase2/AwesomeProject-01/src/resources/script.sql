@@ -4,7 +4,7 @@ USE clone_db;
 
 create table categories(
   id INT(11) NOT NULL AUTO_INCREMENT,
-  name varchar(255) not null,
+  title varchar(255) not null,
   primary key (id)
 );
 
@@ -20,7 +20,7 @@ create table posts(
 alter table posts add constraint CONSTR_POST_CATEGORY foreign key (categoryid) references categories(id);
 
 
-insert into blog.categories (name) values
+insert into blog.categories (title) values
   ('testValue1'),
   ('testValue2'),
   ('testValue3');

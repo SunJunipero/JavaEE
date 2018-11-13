@@ -9,8 +9,8 @@
     <context:component-scan base-package = "com.example.formmvc" />
 
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name = "prefix" value = "/jsp/" />
-        <property name = "suffix" value = ".jsp" />
+        <property title = "prefix" value = "/jsp/" />
+        <property title = "suffix" value = ".jsp" />
     </bean>
 
 </beans>

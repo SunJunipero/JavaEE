@@ -6,15 +6,15 @@
 <hibernate-configuration>
 
     <session-factory>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/inheritance_joined</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
-        <!--<property name="default_schema">inheritance_joined</property>-->
-        <property name="connection.pool_size">1</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="current_session_context_class">thread</property>
-        <property name="hbm2ddl.auto">update</property>
+        <property title="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property title="connection.url">jdbc:mysql://localhost:3306/inheritance_joined</property>
+        <property title="connection.username">root</property>
+        <property title="connection.password">root</property>
+        <!--<property title="default_schema">inheritance_joined</property>-->
+        <property title="connection.pool_size">1</property>
+        <property title="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property title="current_session_context_class">thread</property>
+        <property title="hbm2ddl.auto">update</property>
 
         <!--<mapping class="hibernate.inheritance.joined.model.Payment"/>-->
         <mapping class="hibernate.inheritance.single_table.model.CashPayment"/>

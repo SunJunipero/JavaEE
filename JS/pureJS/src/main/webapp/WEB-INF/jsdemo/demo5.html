@@ -18,17 +18,17 @@
 <body>
 
     <!--Submit form through JS-->
-    <form name="form1" action="fantomservlet">
-        Num1 <input type="text" name="val1" id="txt1">+
-        Num2 <input type="text" name="val2" id="txt2">
+    <form title="form1" action="fantomservlet">
+        Num1 <input type="text" title="val1" id="txt1">+
+        Num2 <input type="text" title="val2" id="txt2">
         <input type="button" value="=" onclick="submitForm()">
     </form>
 
     <br>
 
-    <form name="form2" action="fantomservlet" onsubmit="intercept()">
-        Num1 <input type="text" name="val1" id="txt3">+
-        Num2 <input type="text" name="val2" id="txt4">
+    <form title="form2" action="fantomservlet" onsubmit="intercept()">
+        Num1 <input type="text" title="val1" id="txt3">+
+        Num2 <input type="text" title="val2" id="txt4">
         <input type="submit" value="=" onclick="submitForm()">
     </form>
 

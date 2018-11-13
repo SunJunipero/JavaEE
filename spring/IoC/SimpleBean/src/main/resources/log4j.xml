@@ -2,19 +2,19 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
 
-    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
-        <param name="target" value="System.out"/>
+    <appender title="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param title="target" value="System.out"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{HH:mm:ss} %-5p %c{1} - %m%n"/>
+            <param title="ConversionPattern" value="%d{HH:mm:ss} %-5p %c{1} - %m%n"/>
         </layout>
     </appender>
 
-    <category name="bean">
+    <category title="bean">
         <priority value="debug"/>
         <appender-ref ref="consoleAppender"/>
     </category>
 
-    <category name="org.springframework">
+    <category title="org.springframework">
         <priority value="debug"/>
         <appender-ref ref="consoleAppender"/>
     </category>

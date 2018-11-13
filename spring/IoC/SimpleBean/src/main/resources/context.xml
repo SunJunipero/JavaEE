@@ -6,16 +6,16 @@
     <bean id="date" class="java.util.Date"/>
 
     <bean id="person" class="bean.Person">
-        <property name="id" value="12"/>
-        <property name="name" value="Alex"/>
-        <property name="birth" ref="date"/>
+        <property title="id" value="12"/>
+        <property title="title" value="Alex"/>
+        <property title="birth" ref="date"/>
     </bean>
 
     <bean id="car" class="bean.Car">
-        <property name="id" value="121"/>
-        <property name="com.musicblog.model" value="Acura"/>
-        <property name="owner" ref="person"/>
-        <property name="year" value="2014"/>
-        <property name="serviceDate" ref="date"/>
+        <property title="id" value="121"/>
+        <property title="com.musicblog.model" value="Acura"/>
+        <property title="owner" ref="person"/>
+        <property title="year" value="2014"/>
+        <property title="serviceDate" ref="date"/>
     </bean>
 </beans>

@@ -14,7 +14,7 @@
 </c:forEach>
 
 <form action="<c:url value="/contacts"/>" method="POST">
-    Contact <input type="text" name="contact"/>&nbsp;<input type="submit" value="Save">
+    Contact <input type="text" title="contact"/>&nbsp;<input type="submit" value="Save">
 
 
 </form>

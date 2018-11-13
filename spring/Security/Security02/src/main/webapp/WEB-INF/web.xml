@@ -6,10 +6,10 @@
          version="2.5">
 
 
-    <display-name>GS_Spring_Security_002</display-name>
+    <display-title>GS_Spring_Security_002</display-title>
 
     <context-param>
-        <param-name>contextConfigLocation</param-name>
+        <param-title>contextConfigLocation</param-title>
         <param-value>
             /WEB-INF/dispatcher-servlet.xml,
             /WEB-INF/spring-security.xml
@@ -22,23 +22,23 @@
 
 
     <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-title>springSecurityFilterChain</filter-title>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
 
     <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-title>springSecurityFilterChain</filter-title>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 
     <servlet>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-title>dispatcher</servlet-title>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-title>dispatcher</servlet-title>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

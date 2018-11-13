@@ -24,6 +24,7 @@
         <module>MVC2</module>
         <module>MVCform</module>
         <module>Security</module>
+        <module>ExtJSCRUD</module>
     </modules>
 
     

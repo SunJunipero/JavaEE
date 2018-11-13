@@ -10,10 +10,7 @@
                   user_name as "user_name",
                   password as "password",
                   email as "email",
-                  birthday as "birthday",
-                  is_active as "is_active",
-                  created_stamp as "created_stamp",
-                  last_updated_stamp as "last_updated_stamp"
+                  is_active as "is_active"
                   from ums.public.users where user_id = #{user_id}
     </select>
 
@@ -24,10 +21,7 @@
                   user_name as "user_name",
                   password as "password",
                   email as "email",
-                  birthday as "birthday",
-                  is_active as "is_active",
-                  created_stamp as "created_stamp",
-                  last_updated_stamp as "last_updated_stamp"
+                  is_active as "is_active"
                   from ums.public.users
 
     </select>
@@ -39,10 +33,7 @@
             user_name,
             password,
             email,
-            birthday,
-            is_active,
-            created_stamp,
-            last_updated_stamp
+            is_active
         )
         values (
             #{user_first_name},
@@ -50,10 +41,7 @@
             #{user_name},
             #{password},
             #{email},
-            #{birthday},
-            #{is_active},
-            #{created_stamp},
-            #{last_updated_stamp}
+            #{is_active}
         )
     </insert>
 
@@ -64,10 +52,8 @@
          user_name =#{user_name},
          password =#{password},
          email =#{email},
-         birthday =#{birthday},
-         is_active =#{is_active},
-         created_stamp =#{created_stamp},
-         last_updated_stamp =#{last_updated_stamp} where user_id =#{user_id}
+         is_active =#{is_active}
+         where user_id =#{user_id}
     </update>
 
     <delete id="deleteUser" parameterType="Integer">

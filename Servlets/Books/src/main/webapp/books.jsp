@@ -19,7 +19,7 @@
 <%--%>--%>
     <ul>
         <c:forEach items="${booksList}" var="book">
-            <li>id: ${book.id}, name: ${book.name}</li>
+            <li>id: ${book.id}, title: ${book.title}</li>
         </c:forEach>
     </ul>
 

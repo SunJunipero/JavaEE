@@ -5,11 +5,11 @@
          version="4.0">
 
     <!--<servlet>-->
-    <!--<servlet-name>HelloServlet</servlet-name>-->
+    <!--<servlet-title>HelloServlet</servlet-title>-->
     <!--<servlet-class>HelloServlet</servlet-class>-->
     <!--</servlet>-->
     <!--<servlet-mapping>-->
-    <!--<servlet-name>HelloServlet</servlet-name>-->
+    <!--<servlet-title>HelloServlet</servlet-title>-->
     <!--<url-pattern>/hello</url-pattern>-->
     <!--</servlet-mapping>-->
 </web-app>

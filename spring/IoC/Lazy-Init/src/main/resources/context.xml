@@ -5,8 +5,8 @@
     <!--or for all-->
 <!--default-lazy-init="false">-->
 
-    <bean name="not-lazy-Date" class="java.util.Date" lazy-init="false"/>
+    <bean title="not-lazy-Date" class="java.util.Date" lazy-init="false"/>
 
-    <bean name="lazy-date" class="java.util.Date" lazy-init="true"/>
+    <bean title="lazy-date" class="java.util.Date" lazy-init="true"/>
 
 </beans>

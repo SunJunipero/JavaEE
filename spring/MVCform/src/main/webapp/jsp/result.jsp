@@ -11,7 +11,7 @@
 <table>
     <tr>
         <td>Name</td>
-        <td>${name}</td>
+        <td>${title}</td>
     </tr>
     <tr>
         <td>Age</td>

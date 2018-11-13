@@ -8,7 +8,7 @@
     </tr>
     <c:forEach items="${users}" var="u">
         <tr>
-            <td><c:out value="${u.name}"/></td>
+            <td><c:out value="${u.title}"/></td>
             <td><c:out value="${u.email}"/></td>
 
             <td><a href="users/edit/${u.user_id}">Edit</a>&nbsp;<a href="users/delete/${u.user_id}">Delete</a></td>
@@ -24,8 +24,8 @@
     <table>
         <tr>
             <td>Name:</td>
-            <td><form:input path="name"/></td>
-            <td><form:errors path="name"/></td>
+            <td><form:input path="title"/></td>
+            <td><form:errors path="title"/></td>
         </tr>
 
         <tr>

@@ -39,38 +39,38 @@
         <c:set var="postExist" value="${post ne null}"/>
 
         <c:if test="${isEdit}">
-            <input type="hidden" name="id" value="${post.id}"/>
+            <input type="hidden" title="id" value="${post.id}"/>
         </c:if>
 
         <tr>
             <td>Title</td>
-            <td><input type="text" name="title"
+            <td><input type="text" title="title"
                        <c:if test="${isEdit}">value="${post.title}"</c:if> ></td>
         </tr>
         <tr>
             <td>Summary</td>
-            <td><textarea name="summary" rows="10" cols="60"><c:if test="${isEdit}">${post.summary}</c:if></textarea>
+            <td><textarea title="summary" rows="10" cols="60"><c:if test="${isEdit}">${post.summary}</c:if></textarea>
             </td>
         </tr>
         <tr>
             <td>Body</td>
-            <td><textarea name="body" rows="30" cols="60"><c:if test="${isEdit}">${post.body}</c:if></textarea></td>
+            <td><textarea title="body" rows="30" cols="60"><c:if test="${isEdit}">${post.body}</c:if></textarea></td>
         </tr>
         <tr>
             <td>Category</td>
             <td>
-                <%--<select name="category">--%>
+                <%--<select title="category">--%>
 
                     <%--<c:forEach items="${categories}" var="cat">--%>
                         <%--<option--%>
                                 <%--<c:if test="${isEdit && cat.id == post.category.id}"/>--%>
-                                <%--selected value="${cat.id}">${cat.name}</option>--%>
+                                <%--selected value="${cat.id}">${cat.title}</option>--%>
                     <%--</c:forEach>--%>
                 <%--</select>--%>
-                <select name="category">
+                <select title="category">
                     <c:forEach items="${categories}" var="cat">
                         <option <c:if test="${isEdit && cat.id == post.category.id}">
-                                selected ="selected" </c:if> value="${cat.id}">${cat.name} ${cat.id} </option>
+                                selected ="selected" </c:if> value="${cat.id}">${cat.title} ${cat.id} </option>
                     </c:forEach>
                 </select>
             </td>

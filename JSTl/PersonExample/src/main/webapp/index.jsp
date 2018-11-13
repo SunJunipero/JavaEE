@@ -21,16 +21,16 @@
 Employee list:
 <ul>
     <c:forEach items="${persons}" var="p">
-        <li>${p.name} ${p.surname} <a href="form?delete=${p.name}">Удалить</a></li>
+        <li>${p.title} ${p.surname} <a href="form?delete=${p.title}">Удалить</a></li>
     </c:forEach>
 </ul>
 
 
 
 <form action="form" method="POST">
-    Имя: <input type="text" name="name"> <br/>
-    Фамилия: <input type="text" name="surname"> <br/>
-    <input type="submit" name="submit"/>
+    Имя: <input type="text" title="title"> <br/>
+    Фамилия: <input type="text" title="surname"> <br/>
+    <input type="submit" title="submit"/>
 </form>
 </body>
 </html>

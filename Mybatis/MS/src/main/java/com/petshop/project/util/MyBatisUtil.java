@@ -8,10 +8,6 @@ import java.io.IOException;
 import java.io.Reader;
 
 public class MyBatisUtil {
-/**
- * TODO
- * get session by spring
- */
     private static String config = "BdConfiguration.xml";
     private static SqlSessionFactory sessionFactory;
 

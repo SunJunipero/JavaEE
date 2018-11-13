@@ -9,8 +9,8 @@
 <form:form method = "POST" action = "/addSong">
     <table>
         <tr>
-            <td><form:label path = "name">Name</form:label></td>
-            <td><form:input path = "name" /></td>
+            <td><form:label path = "title">Name</form:label></td>
+            <td><form:input path = "title" /></td>
         </tr>
         <tr>
             <td><form:label path = "artist">Artist</form:label></td>

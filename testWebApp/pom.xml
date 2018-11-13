@@ -11,7 +11,7 @@
     <artifactId>testWebApp</artifactId>
     <packaging>war</packaging>
 
-    <name>testWebApp Maven Webapp</name>
+    <title>testWebApp Maven Webapp</title>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 

@@ -4,19 +4,19 @@
 
 <mapper namespace="mybatis.SongMapper">
     <select id="selectSong" parameterType="Integer" resultType="Song">
-        select id as "song_id", name as "song_name" from songs.public.song where id = #{song_id}
+        select id as "song_id", title as "song_name" from songs.public.song where id = #{song_id}
     </select>
 
     <select id="getAllSongs" parameterType="Integer" resultType="Song">
-        select id as "song_id", name as "song_name" from songs.public.song
+        select id as "song_id", title as "song_name" from songs.public.song
     </select>
     
     <insert id="insertSong" parameterType="Song" keyProperty="song_id" useGeneratedKeys="true">
-        insert into songs.public.song (name) values (#{song_name})
+        insert into songs.public.song (title) values (#{song_name})
     </insert>
 
     <update id="updateSong" parameterType="Song">
-        update songs.public.song set name = #{song_name} where id = #{song_id}
+        update songs.public.song set title = #{song_name} where id = #{song_id}
     </update>
 
     <delete id="deleteSong" parameterType="Integer">

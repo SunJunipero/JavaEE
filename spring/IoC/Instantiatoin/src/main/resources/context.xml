@@ -6,22 +6,22 @@
    <bean id="currentDate" class="java.util.Date"/>
 
     <bean id="default-constructor-person" class="bean.Person">
-        <property name="id" value="1024"/>
-        <property name="name" value="Alex"/>
-        <property name="birth" ref="currentDate"/>
+        <property title="id" value="1024"/>
+        <property title="title" value="Alex"/>
+        <property title="birth" ref="currentDate"/>
     </bean>
 
     <bean id="arg-constructor-person" class="bean.Person">
-        <constructor-arg name="id" value="1122"/>
-        <constructor-arg name="name" value="Math"/>
-        <constructor-arg name="birth" ref="currentDate"/>
+        <constructor-arg title="id" value="1122"/>
+        <constructor-arg title="title" value="Math"/>
+        <constructor-arg title="birth" ref="currentDate"/>
     </bean>
 
     <bean id="default-factory-method" class="bean.Person" factory-method="getPerson"/>
 
     <bean id="argument-factory-method" class="bean.Person" factory-method="getParamPerson">
-        <constructor-arg name="id" value="9999"/>
-        <constructor-arg name="name" value="Jamie"/>
-        <constructor-arg name="birth" ref="currentDate"/>
+        <constructor-arg title="id" value="9999"/>
+        <constructor-arg title="title" value="Jamie"/>
+        <constructor-arg title="birth" ref="currentDate"/>
     </bean>
 </beans>

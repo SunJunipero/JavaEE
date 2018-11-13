@@ -40,7 +40,7 @@
 
 
     <welcome-file-list>
-        <welcome-file>/views/users.jsp</welcome-file>
+        <welcome-file>/views/grid.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>

@@ -2,19 +2,19 @@ create schema if not exists task_manager;
 
 CREATE TABLE project(
 			project_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			name varchar(255) NOT NULL
+			title varchar(255) NOT NULL
 );
 
 CREATE TABLE task(
 			task_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			name varchar(255) NOT NULL,
+			title varchar(255) NOT NULL,
 			project_id int NOT NULL,
 			CONSTRAINT task_project_project_id_fk FOREIGN KEY (project_id) REFERENCES project (project_id)
 );
 
 CREATE TABLE user(
 			user_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			name varchar(255) NOT NULL,
+			title varchar(255) NOT NULL,
 			email varchar(255) NOT NULL
 );
 

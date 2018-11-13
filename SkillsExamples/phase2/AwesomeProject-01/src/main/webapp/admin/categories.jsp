@@ -18,7 +18,7 @@
 
     <c:forEach items="${categories}" var="cat">
         <tr>
-            <td style="background: #e6e6fa; width: 50%;">${cat.name}</td>
+            <td style="background: #e6e6fa; width: 50%;">${cat.title}</td>
             <td style="background: #6495ed;"><a href="/admin?action=edit&category=${cat.id}">Edit</a></td>
             <td style="background: #f08080;"><a href="/admin?action=delete&category=${cat.id}">Delete</a></td>
         </tr>
@@ -28,7 +28,7 @@
     <c:choose>
         <c:when test="${category ne null}">
             <c:set var="isEdit" value="true"/>
-            <h1>Edit category ${category.name}</h1>
+            <h1>Edit category ${category.title}</h1>
         </c:when>
         <c:otherwise>
             <h1>Create new category</h1>
@@ -39,14 +39,14 @@
     <form action="/admin" method="POST">
 
         <c:if test="${isEdit}">
-            <input type="hidden" name="id" value="${category.id}"/>
+            <input type="hidden" title="id" value="${category.id}"/>
         </c:if>
 
         <table>
 
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="name" <c:if test="${isEdit}">value="${category.name}"</c:if> /></td>
+                <td><input type="text" title="title" <c:if test="${isEdit}">value="${category.title}"</c:if> /></td>
             </tr>
             <tr>
                 <td></td>
