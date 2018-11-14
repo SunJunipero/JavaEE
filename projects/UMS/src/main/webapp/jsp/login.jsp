@@ -17,11 +17,11 @@
         <table>
             <tr>
                 <td>Login:</td>
-                <td><input type="text" title="j_username"></td>
+                <td><input type="text" name="j_username"></td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><input type="text" title="j_password"></td>
+                <td><input type="text" name="j_password"></td>
             </tr>
             <tr>
                 <td colspan='2'>

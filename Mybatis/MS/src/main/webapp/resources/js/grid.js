@@ -20,7 +20,7 @@ Ext.onReady(function () {
             create: {url: '/users/create', method: 'POST'},
             read: {url: '/users/view', method: 'GET'},
             update: {url: '/users/update', method: 'PUT'},
-            destroy: {url: '/users/destroy', method: 'DELETE'}
+            destroy: {url: '/users/delete', method: 'DELETE'}
         }
     });
 
@@ -62,7 +62,6 @@ Ext.onReady(function () {
         saveText: 'Update'
     });
 
-    // create grid
     var grid = new Ext.grid.GridPanel({
         store: store,
         columns: [
@@ -71,10 +70,6 @@ Ext.onReady(function () {
                 width: 130,
                 sortable: true,
                 dataIndex: 'user_id',
-                editor: {
-                    xtype: 'textfield',
-                    allowBlank: false
-                }
             },
             {
                 header: "FIRST NAME",
@@ -132,7 +127,6 @@ Ext.onReady(function () {
                 sortable: true,
                 dataIndex: 'is_active',
                 editor: {
-                    // datafield
                     xtype: 'textfield',
                     allowBlank: false
                 }

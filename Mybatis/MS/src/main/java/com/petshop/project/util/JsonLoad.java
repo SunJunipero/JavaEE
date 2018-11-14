@@ -39,7 +39,6 @@ public class JsonLoad {
             }
 
         } else {
-            System.out.println("here");
             data.add(item);
             total++;
         }

@@ -16,7 +16,7 @@ public class UserRestController {
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/grid")
     public String mainPage(){
         return "grid";
     }
@@ -25,7 +25,6 @@ public class UserRestController {
     public
     @ResponseBody
     JsonLoad getUsers() {
-        System.out.println("get user !!!");
         JsonLoad jsonLoad = new JsonLoad();
         List<User> allUsers = userMapper.getAllUsers();
         jsonLoad.add(allUsers);
@@ -55,11 +54,10 @@ public class UserRestController {
         return jsonLoad;
     }
 
-    @RequestMapping(value = "/users/destroy", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/users/delete", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public
     @ResponseBody
     JsonLoad delete(@RequestBody int[] id) {
-        System.out.println("delete user !!!");
         userMapper.deleteUsers(id);
         JsonLoad jsonLoad = new JsonLoad();
         jsonLoad.add(id.length);

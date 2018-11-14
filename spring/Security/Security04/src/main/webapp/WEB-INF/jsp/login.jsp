@@ -16,12 +16,12 @@
     <table>
         <tr>
             <td>Login:</td>
-            <td><input type='text' title='j_username' value=''>
+            <td><input type='text' name='j_username' value=''>
             </td>
         </tr>
         <tr>
             <td>Password:</td>
-            <td><input type='password' title='j_password' />
+            <td><input type='password' name='j_password' />
             </td>
         </tr>
         <tr>

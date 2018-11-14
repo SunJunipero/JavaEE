@@ -11,6 +11,7 @@
 
     <typeAliases>
         <typeAlias type="com.petshop.project.model.User" alias="users"/>
+        <typeAlias type="com.petshop.project.model.UserRole" alias="role"/>
     </typeAliases>
 
     <environments default="development">
